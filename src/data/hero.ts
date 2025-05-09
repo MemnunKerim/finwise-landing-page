@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'Smart, Secure, Simple Financial Management',
-    subheading: 'From effortless budgeting to real-time investment insights, Finwise puts you in control of your money like never before',
+    heading: 'İhtiyacınız Kadar Depo Alanı, Tam Zamanında',
+    subheading: 'Sabit depolama masraflarına son verin, palet bazında depolama ile lojistik süreçlerinizi basitleştirin ve maliyetlerinizi azaltın. İhtiyaç duyduğunuz anda, istediğiniz kadar palet depolayın.',
     centerImageSrc: '/images/hero-mockup.webp',
 }
