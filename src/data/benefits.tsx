@@ -41,7 +41,7 @@ export const benefits: IBenefit[] = [
     title: "Maliyet Tasarrufu ve Şeffaf Fiyatlandırma",
     description:
       "Kullanılmayan metrekareler için ödeme yapmayın. Sadece depolanan palet adedi ve süre üzerinden faturalandırma ile maliyetlerinizi %30'a varan oranlarda azaltın.",
-    imageSrc: "/images/benefit-cost.jpg",
+    imageSrc: "/images/benefit-flexibility.jpg", // 16:9 veya dikey depo raf fotoğrafı
     bullets: [
       {
         title: "Kullandığın Kadar Öde",
@@ -67,7 +67,7 @@ export const benefits: IBenefit[] = [
     title: "Güvenlik ve Operasyonel Mükemmellik",
     description:
       "Depolarımız 7/24 CCTV, yangın ve giriş kontrol sistemleri ile korunur. Eğitimli personel ile palet kabul, sayım ve çapraz kontroller standart süreçlere göre yapılır.",
-    imageSrc: "/images/benefit-security.jpg",
+    imageSrc: "/images/benefit-flexibility.jpg", // 16:9 veya dikey depo raf fotoğrafı
     bullets: [
       {
         title: "7/24 CCTV & Sigorta",
