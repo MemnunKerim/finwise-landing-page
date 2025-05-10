@@ -1,8 +1,5 @@
-import { ctaDetails } from "@/data/cta"
-
-import AppStoreButton from "./AppStoreButton"
-import PlayStoreButton from "./PlayStoreButton"
-
+import { ctaDetails } from "@/data/cta";
+import Link from "next/link";
 const CTA: React.FC = () => {
     return (
         <section id="cta" className="mt-10 mb-5 lg:my-20">
@@ -17,10 +14,27 @@ const CTA: React.FC = () => {
 
                         <p className="mx-auto max-w-xl md:px-5">{ctaDetails.subheading}</p>
 
-                        <div className="mt-4 flex flex-col sm:flex-row items-center sm:gap-4">
-                        <AppStoreButton />
-                        <PlayStoreButton />
-                        </div>
+    {/* CTA butonu */}
+    <Link
+      href={ctaDetails.buttonHref}
+      className="mt-6 inline-block bg-primary hover:bg-primary-accent
+                 text-white font-semibold px-8 py-4 rounded-full transition"
+    >
+      {ctaDetails.buttonText}
+    </Link>
+
+   {/* Ek iletişim bilgileri */}
+    <p className="mt-4 text-sm text-gray-300">
+      Sorularınız için&nbsp;
+      <a href={`tel:${ctaDetails.phone.replace(/\\s+/g, "")}`} className="underline">
+        {ctaDetails.phone}
+      </a>{" "}
+      numaralı telefondan bizi arayabilir veya&nbsp;
+      <a href={`mailto:${ctaDetails.email}`} className="underline">
+        {ctaDetails.email}
+      </a>
+      &nbsp;adresine e‑posta gönderebilirsiniz.
+    </p>
                     </div>
                 </div>
             </div>

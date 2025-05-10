@@ -8,6 +8,10 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
+import Services from "@/components/Services";
+import ProcessFlow from "@/components/ProcessFlow";
+
+
 
 const HomePage: React.FC = () => {
   return (
@@ -33,9 +37,17 @@ const HomePage: React.FC = () => {
         >
           <Testimonials />
         </Section>
-
+          <Section
+            id="hizmetler"
+            title="PaletDepo Ne Sunuyor?"
+            description="Dijital gücümüzle depolamadan sevkiyata kadar uçtan uca çözümler."
+          >
+            <Services />
+          </Section>
         <FAQ />
-
+          <Section id="süreç" title="" description="">
+            <ProcessFlow />
+          </Section>
          <Logos />
         
         <CTA />

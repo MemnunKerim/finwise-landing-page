@@ -2,24 +2,34 @@ import { IFAQ } from "@/types";
 import { siteDetails } from "./siteDetails";
 
 export const faqs: IFAQ[] = [
-    {
-        question: `Is ${siteDetails.siteName} secure?`,
-        answer: 'Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our biometric authentication adds an extra layer of security.',
-    },
-    {
-        question: `Can I use ${siteDetails.siteName} on multiple devices?`,
-        answer: 'Absolutely! Your Finwise account syncs seamlessly across all your devices - smartphone, tablet, and computer.',
-    },
-    {
-        question: 'Can I connect all my bank accounts?',
-        answer: `Yes! ${siteDetails.siteName} supports connections with over 10,000 financial institutions worldwide. Simply log in through our secure portal to link your accounts.`
-    },
-    {
-        question: 'Do I need any financial expertise to use the investing features?',
-        answer: 'Not at all! Our expert-curated portfolios and educational resources make investing accessible to everyone, regardless of experience level.',
-    },
-    {
-        question: 'What if I need help using the app?',
-        answer: 'Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Finwise.'
-    }
+{
+    question: "Minimum kaç palet depolayabilirim?",
+    answer:
+      "PaletDepo’da minimum depo limiti yoktur. Tek bir palet dahi depolayabilir, ihtiyacınız arttıkça kapasiteyi anında yükseltebilirsiniz."
+  },
+  {
+    question: "Depo rezervasyonumu nasıl oluştururum?",
+    answer:
+      "Web sitemizdeki Rezervasyon formunu doldurabilir veya iletişim bilgilerinizi bırakarak ekibimizin sizinle aynı gün içinde iletişime geçmesini sağlayabilirsiniz."
+  },
+  {
+    question: "Paletlerime 7/24 erişim sağlayabilir miyim?",
+    answer:
+      "Evet. Tüm depolarımız randevulu 7/24 erişim sunar. Panelden çıkış talebi oluşturmanız yeterlidir; ekiplerimiz belirttiğiniz saat aralığında hazırlık yapar."
+  },
+  {
+    question: "Fiyatlandırma nasıl hesaplanıyor?",
+    answer:
+      "Günlük modelde paletiniz depoda kaç gün kaldıysa o kadar ücret ödersiniz. Abonelik modelinde ise palet başı sabit aylık ücret uygulanır; fatura dönemi sonunda otomatik kesilir."
+  },
+  {
+    question: "Paletlerim sigortalı mı?",
+    answer:
+      "Depolarımız zorunlu yangın ve hırsızlık sigortasına sahiptir. Ek teminat isterseniz değer bazlı sigorta paketi opsiyonel olarak sunulur."
+  },
+  {
+    question: "API veya ERP entegrasyonu mümkün mü?",
+    answer:
+      "MERN tabanlı WMS’imiz REST API desteği sağlar. Stok verilerinizi kendi ERP veya lojistik yönetim sisteminize gerçek zamanlı aktarabilirsiniz."
+  }
 ];

@@ -1,6 +1,9 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Transform Your Finances',
-    subheading: 'Your journey to financial freedom starts here. Download Finwise today and take the first step towards a brighter financial future!',
-    appStoreUrl: '#',
-    googlePlayUrl: '#'
-}
+  heading: "Depo ihtiyacınız için doğru çözüm ortağı PaletDepo!",
+  subheading:
+    "Sorularınız mı var veya hemen teklif mi almak istiyorsunuz? Formu şimdi doldurun, uzman ekibimiz sizi arasın.",
+  phone: "+90 212 758 42 14",
+  email: "help@paletdepo.com",
+  buttonText: "Teklif Al / Sizi Arayalım",
+  buttonHref: "/iletisim",           // İletişim formu rotanız
+};

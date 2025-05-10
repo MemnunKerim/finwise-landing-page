@@ -15,6 +15,12 @@ export interface IBenefitBullet {
     description: string;
     icon: JSX.Element;
 }
+export interface IProcessStep {
+  id: number;
+  title: string;
+  desc: string;
+  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+}
 
 export interface IPricing {
   name: string;
