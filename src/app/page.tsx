@@ -19,17 +19,17 @@ const HomePage: React.FC = () => {
         <Benefits />
 
         <Section
-          id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
+          id="fiyatlar"
+          title="Fiyatlar"
+          description="Şeffaf, öngörülebilir fiyatlandırma. Sürpriz maliyet yok."
         >
           <Pricing />
         </Section>
 
         <Section
-          id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
+          id="referanslar"
+          title="Müşterilerimiz Ne Diyor?"
+          description="PaletDepo ile çalışan şirketlerin deneyimlerini keşfedin."
         >
           <Testimonials />
         </Section>

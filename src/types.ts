@@ -17,9 +17,12 @@ export interface IBenefitBullet {
 }
 
 export interface IPricing {
-    name: string;
-    price: number | string;
-    features: string[];
+  name: string;
+  price: string;            // "₺15 / palet / gün" gibi tek string
+  features: string[];
+  description?: string;     // (yeni) kısa açıklama satırı
+  highlight?: boolean;
+  cta?: { text: string; href: string };   // (yeni) butonda kullanılacak
 }
 
 export interface IFAQ {
