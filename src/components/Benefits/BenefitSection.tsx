@@ -93,9 +93,19 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
 
                 <div className={clsx("mt-5 lg:mt-0", { "lg:order-2": imageAtRight })}>
                     <div className={clsx("w-fit flex", { "justify-start": imageAtRight, "justify-end": !imageAtRight })}>
-                        <Image src={imageSrc} alt={title} width={900} height={600} quality={100}
-                               className={clsx("rounded-lg shadow-lg", imageAtRight ? "mask-fade-l" : "mask-fade-r")}
+                        <Image
+  src={imageSrc}
+  alt="Palet taşıyan forklift"                /* Alt‑text: görseli kısaca tanımlar */
+  width={900}
+  height={600}
+  quality={100}
+  loading="lazy"             /* Hero dışı görsellerde lazy‑load */
+  className={clsx(
+    "rounded-lg shadow-lg",
+    imageAtRight ? "lg:mask-fade-l" : "lg:mask-fade-r"  /* mask Sadece ≥ lg breakpoint */
+  )}
 />
+
                     </div>
                 </div>
             </motion.div>
