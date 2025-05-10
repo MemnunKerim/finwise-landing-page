@@ -1,7 +1,5 @@
-import { BsBarChartFill, BsFillStarFill,BsFillBox2Fill,          // palet ikonu
-  BsFillEmojiSmileFill } from "react-icons/bs";
-import { PiGlobeFill } from "react-icons/pi";
-import { HiOutlineMap } from 'react-icons/hi';
+import { BsBarChartFill, BsFillStarFill,BsFillBox2Fill } from "react-icons/bs";
+
 
 import { IStats } from "@/types";
 

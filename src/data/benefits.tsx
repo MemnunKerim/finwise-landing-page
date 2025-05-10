@@ -5,7 +5,6 @@ import {
   BsGraphUp,
   BsShieldCheck,
   BsPiggyBank,
-  BsFillEmojiSmileFill,
 } from "react-icons/bs";
 import { HiOutlineLightningBolt, HiOutlineClipboardCheck } from "react-icons/hi";
 import { MdOutlineWarehouse } from "react-icons/md";
