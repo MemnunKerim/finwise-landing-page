@@ -8,16 +8,29 @@ import Image from 'next/image';
 import Container from './Container';
 import { siteDetails } from '@/data/siteDetails';
 import { menuItems } from '@/data/menuItems';
+import { useEffect } from 'react';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+  const [scrolled, setScrolled] = useState(false);
+
+  // header scroll rengi
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
-    return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 mx-auto w-full transition
+                  ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}
+    >
             <Container className="!px-0">
                 <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-5">
                     {/* Logo */}
@@ -46,7 +59,7 @@ const Header: React.FC = () => {
                         ))}
                         <li>
                             <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors">
-                                Download
+                                Sizi arayalım!
                             </Link>
                         </li>
                     </ul>

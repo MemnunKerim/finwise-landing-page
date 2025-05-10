@@ -1,21 +1,42 @@
-import { stats } from "@/data/stats"
+'use client';
 
-const Stats: React.FC = () => {
-    return (
-        <section id="stats" className="py-10 lg:py-20">
-            <div className="grid sm:grid-cols-3 gap-8">
-                {stats.map(stat => (
-                    <div key={stat.title} className="text-center sm:text-left max-w-md sm:max-w-full mx-auto">
-                        <h3 className="mb-5 flex items-center gap-2 text-3xl font-semibold justify-center sm:justify-start">
-                            {stat.icon}
-                            {stat.title}
-                        </h3>
-                        <p className="text-foreground-accent">{stat.description}</p>
-                    </div>
-                ))}
-            </div>
-        </section>
-    )
-}
+import { stats } from '@/data/stats';
+import { motion } from 'framer-motion';
 
-export default Stats
+/**
+ * PaletDepo – Hızlı İstatistikler
+ * IStats = { title, icon, description }
+ */
+const Stats: React.FC = () => (
+  <section
+    id="stats"
+    className="relative isolate overflow-hidden py-20"
+  >
+    {/* arka plan grid */}
+    <div
+      className="pointer-events-none absolute inset-0 -z-10
+                 bg-[url('/images/grid.svg')] opacity-20
+                 bg-[length:40px_40px]
+                 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent)]"
+    />
+
+    <div className="max-w-6xl mx-auto px-4 grid gap-12 sm:grid-cols-3 text-center">
+      {stats.map((item) => (
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: .6 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center gap-2"
+        >
+          {item.icon}
+          <h3 className="text-3xl font-bold text-foreground">{item.title}</h3>
+          <p className="text-sm text-foreground/70 max-w-xs">{item.description}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+export default Stats;
