@@ -10,7 +10,7 @@ export const metadata = {
         Depolama ihtiyaçlarınız için bize ulaşın.
       </p>
       <a
-        href="https://wa.me/905xxxxxxxxx"
+        href="https://wa.me/905379527145"
         className="inline-block bg-accent text-white py-3 px-6 rounded-full"
         target="_blank"
         rel="noopener noreferrer"
@@ -18,7 +18,7 @@ export const metadata = {
         WhatsApp ile Yaz
       </a>
       <p>
-        <strong>Telefon:</strong> <a href="tel:+90xxxxxxxxxx">0 (xxx) xxx xx xx</a>
+        <strong>Telefon:</strong> <a href="tel:+902127584214">0 (212) 758 42 14</a>
         <br />
         <strong>E‑posta:</strong> <a href="mailto:info@paletdepo.com">info@paletdepo.com</a>
       </p>
