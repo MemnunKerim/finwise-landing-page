@@ -50,11 +50,11 @@ export default function ProcessFlow() {
       {/* CTA */}
       <div className="text-center mt-16">
         <a
-          href="/iletisim"
+          href="/rezervasyon"
           className="inline-block bg-primary hover:bg-primary-accent
                      text-white font-semibold px-8 py-3 rounded-full transition"
         >
-          Şimdi Depo Rezervasyonu Yap
+          Depo Rezervasyonu Yap
         </a>
       </div>
     </div>
