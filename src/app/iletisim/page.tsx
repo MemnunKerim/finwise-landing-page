@@ -2,8 +2,8 @@ export const metadata = {
     title: "İletişim – PaletDepo",
     description: "Bize hemen ulaşın, teklif alın."
   };
-  
-  const IletisimPage = () => (
+import CTA from "@/components/CTA";
+/*  const IletisimPage = () => (
     <div className="pt-24 pb-16 max-w-xl mx-auto text-center space-y-6">
       <h1 className="text-4xl font-bold">İletişim</h1>
       <p className="text-foreground-accent">
@@ -24,6 +24,12 @@ export const metadata = {
       </p>
     </div>
   );
-  
+  */
+const IletisimPage = () => (
+  <div className="pt-24">
+    <CTA />
+  </div>
+);
+
   export default IletisimPage;
   

@@ -1,5 +1,5 @@
 import { ctaDetails } from "@/data/cta";
-import Link from "next/link";
+import ContactForm from "./ContactForm";
 const CTA: React.FC = () => {
     return (
         <section id="cta" className="mt-10 mb-5 lg:my-20">
@@ -14,14 +14,10 @@ const CTA: React.FC = () => {
 
                         <p className="mx-auto max-w-xl md:px-5">{ctaDetails.subheading}</p>
 
-    {/* CTA butonu */}
-    <Link
-      href={ctaDetails.buttonHref}
-      className="mt-6 inline-block bg-primary hover:bg-primary-accent
-                 text-white font-semibold px-8 py-4 rounded-full transition"
-    >
-      {ctaDetails.buttonText}
-    </Link>
+    {/* Teklif Formu */}
+    <div className="w-full max-w-2xl mt-10">
+      <ContactForm />
+    </div>
 
    {/* Ek iletişim bilgileri */}
     <p className="mt-4 text-sm text-gray-300">
