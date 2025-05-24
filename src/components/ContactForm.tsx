@@ -30,7 +30,12 @@ const ContactForm: React.FC = () => {
     await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
       method: "POST",
       body: JSON.stringify(payload),
-      headers: { Accept: "application/json" },
+          /*  JSON gövdeyi Express json()’ın parse edebilmesi için
+        Content-Type mutlaka application/json olmalı              */
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
     })
       .then((res) => {
         if (!res.ok) throw new Error("Bad Request");
