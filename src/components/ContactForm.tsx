@@ -22,6 +22,7 @@ const ContactForm: React.FC = () => {
       message:   fd.get("message")   || "",
       promoConsent: fd.get("promoConsent") === "true",
       kvkkConsent:  fd.get("kvkkConsent")  === "true",
+      siteDomain:  window.location.host,
     };
 
     /*  ➜  Formspree örneği.
