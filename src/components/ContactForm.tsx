@@ -10,20 +10,25 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     setSubmitting(true);
 
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;               /* 🔑 referansı tut */
+    const data = new FormData(form);
+
 
     /*  ➜  Formspree örneği.
         Hesabınızda yeni bir “form” oluşturduğunuzda
         oluşan ID’yi `yourFormID` yerine yazın. */
-    await fetch("https://formspree.io/f/yourFormID", {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
       method: "POST",
-      body: data,
+      body: JSON.stringify(Object.fromEntries(data)),
       headers: { Accept: "application/json" },
-    }).catch(() => {});
-
-    e.currentTarget.reset();
-    setSubmitting(false);
-    alert("Talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.");
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Bad Request");
+        form.reset();                           /* 👉 güvenli reset */
+        alert("Talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.");
+      })
+      .catch(() => alert("Gönderim sırasında bir hata oluştu."))
+      .finally(() => setSubmitting(false));
   };
 
   return (
