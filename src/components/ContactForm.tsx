@@ -11,15 +11,25 @@ const ContactForm: React.FC = () => {
     setSubmitting(true);
 
     const form = e.currentTarget;               /* 🔑 referansı tut */
-    const data = new FormData(form);
-
+    const fd = new FormData(form);
+    /* Form alanlarını tek tek eşleştir (adlar şemayla %100 aynı) */
+    const payload = {
+      firstName: fd.get("firstName") || "",
+      lastName:  fd.get("lastName")  || "",
+      phone:     fd.get("phone")     || "",
+      email:     fd.get("email")     || "",
+      service:   fd.get("service")   || "",
+      message:   fd.get("message")   || "",
+      promoConsent: fd.get("promoConsent") === "true",
+      kvkkConsent:  fd.get("kvkkConsent")  === "true",
+    };
 
     /*  ➜  Formspree örneği.
         Hesabınızda yeni bir “form” oluşturduğunuzda
         oluşan ID’yi `yourFormID` yerine yazın. */
     await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
       method: "POST",
-      body: JSON.stringify(Object.fromEntries(data)),
+      body: JSON.stringify(payload),
       headers: { Accept: "application/json" },
     })
       .then((res) => {
@@ -42,13 +52,13 @@ const ContactForm: React.FC = () => {
           required
           name="firstName"
           placeholder="Adınız *"
-          className="input"
+          className={inputBase}
         />
         <input
           required
           name="lastName"
           placeholder="Soyadınız *"
-          className="input"
+          className={inputBase}
         />
       </div>
 
@@ -58,14 +68,14 @@ const ContactForm: React.FC = () => {
           required
           name="phone"
           placeholder="Telefon Numaranız *"
-          className="input"
+          className={inputBase}
         />
         <input
           required
           type="email"
           name="email"
           placeholder="E-posta Adresiniz *"
-          className="input"
+          className={inputBase}
         />
       </div>
 
@@ -99,18 +109,18 @@ const ContactForm: React.FC = () => {
         name="message"
         placeholder="Mesajınız (isteğe bağlı)"
         rows={4}
-        className="input"
+        className={inputBase}
       />
 
       {/* Onay kutuları */}
       <label className="flex items-start gap-2 text-xs leading-snug">
-        <input type="checkbox" name="promoConsent" required />
+        <input type="checkbox" name="promoConsent" value="true" required />
         PaletDepo’dan haber, etkinlik ve ürün duyurularını e-posta ile almak
         için ticari ileti onay metnini okudum ve kabul ediyorum.
       </label>
 
       <label className="flex items-start gap-2 text-xs leading-snug">
-        <input type="checkbox" name="kvkkConsent" required />
+        <input type="checkbox" name="kvkkConsent" value="true" required />
         Kişisel verilerimin, tepe markamız Memnun Depo Nakliyat Lojistik San. ve Tic.
         tarafından KVKK Aydınlatma Metni’nde açıklandığı şekilde işlenmesini
         okudum ve onaylıyorum.
@@ -128,7 +138,7 @@ const ContactForm: React.FC = () => {
   );
 };
 
-/* Küçük yardımcı sınıf */
+/* 🔧 ortak input stilini değişkene atayıp gerçekten kullanalım */
 const inputBase =
   "w-full rounded-lg border border-gray-300 bg-white/90 px-4 py-3 text-sm placeholder-gray-500 focus:border-primary focus:ring-primary";
 
