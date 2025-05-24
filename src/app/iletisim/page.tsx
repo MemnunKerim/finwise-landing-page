@@ -26,7 +26,7 @@ import CTA from "@/components/CTA";
   );
   */
 const IletisimPage = () => (
-  <div className="pt-24">
+  <div className="pt-12 pb-16 max-w-6xl mx-auto text-center space-y-6">
     <CTA />
   </div>
 );
