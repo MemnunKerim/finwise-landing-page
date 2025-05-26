@@ -52,7 +52,7 @@ export default function ProcessFlow() {
         <a
           href="/rezervasyon"
           className="inline-block bg-primary hover:bg-primary-accent
-                     text-white font-semibold px-8 py-3 rounded-full transition"
+                     text-black font-semibold px-8 py-3 rounded-full transition"
         >
           Depo Rezervasyonu Yap
         </a>
