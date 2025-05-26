@@ -1,35 +1,41 @@
-// src/app/rezervasyon/page.tsx            <--  new*
-import Link from "next/link";
+import Container from "@/components/Container";
+import SectionTitle from "@/components/SectionTitle";
+import ReservationForm from "@/components/ReservationForm";
+import { BsShieldCheck, BsClock, BsHeadset } from "react-icons/bs";
+
 
 export const metadata = {
   title: "Rezervasyon – PaletDepo",
   description:
-    "PaletDepo’da depo alanınızı hemen rezerve edin. Yakında online ödeme!",
-};
+    "PaletDepo'da depo alanınızı hemen rezerve edin. Detaylı ürün bilgileri ile güvenli depolama.",
+  keywords: "palet rezervasyon, depo rezervasyon, esenyurt depo, palet depolama rezervasyonu"};
 
-export default function RezervasyonPage() {
+const RezervasyonPage = () => {
   return (
-    <section className="container mx-auto max-w-4xl py-24 text-center">
-      <h1 className="mb-6 text-4xl font-bold">Palet Depo Rezervasyonu</h1>
-      <p className="mb-10 text-foreground-accent">
-        Online rezervasyon modülü üzerinde çalışıyoruz. Şimdilik
-        <br />
-        <Link href="/iletisim" className="text-primary underline">
-          iletişim formumuzu
-        </Link>{" "}
-        doldurarak ekibimizden teklif alabilirsiniz.
-      </p>
+      <div className="pt-24 pb-16">
+      <Container>
+        {/* Hero Section */}
+        <section className="text-center mb-12">
+          <SectionTitle>
+            <h1 className="mb-6">Palet Depo Rezervasyonu</h1>
+          </SectionTitle>
+          <p className="text-lg text-foreground-accent max-w-2xl mx-auto mb-8">
+            Depolama ihtiyaçlarınız için hızlı ve güvenli rezervasyon yapın. 
+            Formda verdiğiniz bilgiler doğrultusunda size en uygun çözümü sunacağız.
+          </p>
+          
+          {/* Feature Highlights */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+            [... geri kalan kod ...]
+          </div>
+        </section>
 
-      <div className="rounded-xl bg-muted p-8 shadow-lg">
-        <p className="text-lg">
-          <strong>Sıradaki adım:</strong> Güvenli ödeme &amp; stok planlama
-          entegrasyonu.
-        </p>
-        <p className="mt-2 text-sm text-foreground-accent">
-          (Bu sayfa, e-commerce benzeri satın alma sürecinin temelini
-          oluşturacak.)
-        </p>
-      </div>
-    </section>
+        {/* Reservation Form */}
+        <ReservationForm />
+
+        {/* Contact Information & FAQ sections ... */}
+      </Container>
+    </div>
   );
 }
+export default RezervasyonPage;
