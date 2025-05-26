@@ -73,7 +73,7 @@ const Header: React.FC = () => {
           {/* MOBILE CTA (her zaman görünür) */}
           <Link
             href="/iletisim"
-            className="md:hidden bg-primary px-8 py-3 rounded-full text-sm font-hard
+            className="md:hidden bg-primary px-4 py-2 rounded-full text-sm font-hard
                        text-black hover:bg-primary-accent transition-colors mr-3"
           >
             Sizi arayalım!
