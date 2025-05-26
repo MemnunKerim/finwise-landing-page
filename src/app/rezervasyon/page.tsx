@@ -2,7 +2,7 @@
  import Container from "@/components/Container";
  import SectionTitle from "@/components/SectionTitle";
  import ReservationForm from "@/components/ReservationForm";
- import { BsShieldCheck, BsClock, BsHeadset } from "react-icons/bs";
+ import { BsShieldCheck, BsClock, BsHeadset, BsPhone, BsWhatsapp, BsEnvelope, BsCurrencyDollar, BsBoxSeam, BsTruck } from "react-icons/bs";
  
  export const metadata = {
    title: "Rezervasyon – PaletDepo",
@@ -59,7 +59,8 @@
                  href="tel:+902127584214" 
                  className="bg-secondary text-white px-6 py-3 rounded-full hover:bg-blue-600 transition"
                >
-                 📞 0 (212) 758 42 14
+               <BsPhone className="inline mr-2" /> 0 (212) 758 42 14
+
                </a>
                <a 
                  href="https://wa.me/905379527145" 
@@ -67,13 +68,13 @@
                  rel="noopener noreferrer"
                  className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition"
                >
-                 💬 WhatsApp ile Yaz
+               <BsWhatsapp className="inline mr-2" /> WhatsApp ile Yaz
                </a>
                <a 
                  href="mailto:rezervasyon@paletdepo.com"
                  className="bg-primary text-black px-6 py-3 rounded-full hover:bg-primary-accent transition"
                >
-                 ✉️ E-posta Gönder
+                <BsEnvelope className="inline mr-2" /> E-posta Gönder
                </a>
              </div>
            </div>
@@ -86,28 +87,40 @@
            </SectionTitle>
            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
              <div className="bg-white border border-gray-200 rounded-lg p-6">
-               <h4 className="font-semibold mb-3">🕐 Ne Kadar Sürede Başlayabilirim?</h4>
+             <h4 className="font-semibold mb-3 flex items-center">
+               <BsClock className="w-5 h-5 text-primary mr-2" />
+               Ne Kadar Sürede Başlayabilirim?
+             </h4>
                <p className="text-sm text-foreground-accent">
                  Rezervasyon talebinizi aldıktan sonra 2 saat içinde size dönüş yapıyoruz. 
                  Onay sonrası aynı gün içinde paletlerinizi teslim alabilirsiniz.
                </p>
              </div>
              <div className="bg-white border border-gray-200 rounded-lg p-6">
-               <h4 className="font-semibold mb-3">💰 Ödeme Nasıl Yapılır?</h4>
+             <h4 className="font-semibold mb-3 flex items-center">
+               <BsCurrencyDollar className="w-5 h-5 text-primary mr-2" />
+               Ödeme Nasıl Yapılır?
+             </h4>
                <p className="text-sm text-foreground-accent">
                  Günlük depolama için haftalık, aylık abonelik için aylık faturalandırma. 
                  Kredi kartı, havale/EFT ve çek ile ödeme seçenekleri.
                </p>
              </div>
              <div className="bg-white border border-gray-200 rounded-lg p-6">
-               <h4 className="font-semibold mb-3">📦 Hangi Ürünleri Depolayabilirim?</h4>
+             <h4 className="font-semibold mb-3 flex items-center">
+               <BsBoxSeam className="w-5 h-5 text-primary mr-2" />
+               Hangi Ürünleri Depolayabilirim?
+             </h4>
                <p className="text-sm text-foreground-accent">
                  Gıda, tekstil, elektronik, mobilya gibi çoğu ürün grubu kabul edilir. 
                  Tehlikeli madde durumunda özel onay gereklidir.
                </p>
              </div>
              <div className="bg-white border border-gray-200 rounded-lg p-6">
-               <h4 className="font-semibold mb-3">🚛 Nakliye Hizmeti Var Mı?</h4>
+             <h4 className="font-semibold mb-3 flex items-center">
+               <BsTruck className="w-5 h-5 text-primary mr-2" />
+               Nakliye Hizmeti Var Mı?
+             </h4>
                <p className="text-sm text-foreground-accent">
                  İstanbul içi nakliye hizmetimiz mevcuttur. Rezervasyon sırasında 
                  nakliye ihtiyaçınızı belirtebilirsiniz.

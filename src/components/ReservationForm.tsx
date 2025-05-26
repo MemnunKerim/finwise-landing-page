@@ -148,12 +148,12 @@ const ReservationForm: React.FC = () => {
         <div className="flex items-center justify-between mb-4">
           {steps.map((step, index) => (
             <div key={step.id} className="flex items-center">
-              <div className={`flex items-center justify-center w-10 h-10 rounded-full ${
+              <div className={`flex items-center justify-center w-14 h-14 rounded-full ${
                 currentStep >= step.id 
                   ? 'bg-primary text-black' 
                   : 'bg-gray-200 text-gray-500'
               }`}>
-                {currentStep > step.id ? <BsCheckCircleFill /> : <step.icon />}
+                {currentStep > step.id ? <BsCheckCircleFill size={32} /> : <step.icon size={32} />}
               </div>
               {index < steps.length - 1 && (
                 <div className={`flex-1 h-1 mx-4 ${
