@@ -12,6 +12,7 @@ const Stats: React.FC = () => (
     id="stats"
     className="relative isolate overflow-hidden py-20"
   >
+    <h2 className="sr-only">PaletDepo’nun Başlıca Rakamları</h2>
     {/* arka plan grid */}
     <div
       className="pointer-events-none absolute inset-0 -z-10
