@@ -18,7 +18,7 @@ export const benefits: IBenefit[] = [
     imageSrc: "/images/benefit-flexibility.jpg", // 16:9 veya dikey depo raf fotoğrafı
     bullets: [
       {
-        title: "Günlük / Aylık Seçenekler",
+        title: "Günlük / Haftalık / Aylık Seçenekler",
         description:
           "Sabit kira kontratlarına gerek kalmadan gün, hafta veya ay bazında depolama.",
         icon: <BsClockHistory className="w-6 h-6 text-accent" />,

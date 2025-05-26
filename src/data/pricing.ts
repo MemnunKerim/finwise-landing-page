@@ -12,7 +12,7 @@ export const tiers: IPricing[] = [
       "Gerçek zamanlı stok takibi",
       "7/24 depo erişimi",
     ],
-    cta: { text: "Teklif Al", href: "/iletisim" },
+    cta: { text: "Rezervasyon", href: "/rezervasyon" },
   },
   {
     name: "B2B‑Abonelik",
@@ -26,6 +26,6 @@ export const tiers: IPricing[] = [
       "Özel müşteri temsilcisi",
     ],
     highlight: true,
-    cta: { text: "Teklif Al", href: "/iletisim" },
+    cta: { text: "Rezervasyon", href: "/rezervasyon" },
   },
 ];

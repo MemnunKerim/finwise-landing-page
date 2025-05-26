@@ -166,6 +166,6 @@ const ContactForm: React.FC = () => {
 
 /* 🔧 ortak input stilini değişkene atayıp gerçekten kullanalım */
 const inputBase =
-  "w-full rounded-lg border border-gray-300 bg-white/90 px-4 py-3 text-sm placeholder-gray-500 focus:border-primary focus:ring-primary";
+  "w-full rounded-lg border border-gray-300 bg-white/90 px-4 py-3 text-sm text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-primary";
 
 export default ContactForm;

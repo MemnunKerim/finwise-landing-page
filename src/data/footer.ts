@@ -5,6 +5,7 @@ export const footerDetails: {
     quickLinks: IMenuItem[];
     email: string;
     telephone: string;
+    address:string;
     socials: ISocials;
 } = {
     subheading: "Palet bazında esnek depolama, elleçleme ve dijital envanter yönetimi.",
@@ -18,6 +19,7 @@ export const footerDetails: {
   ],
     email: 'selam@paletdepo.com',
     telephone: "+90 212 758 42 14",
+    address: "Zafer Mah. 118.Sk. No 10 Esenyurt/Ist MEMNUN DEPO ",
     socials: {
         // github: 'https://github.com',
         // x: 'https://twitter.com/x',
