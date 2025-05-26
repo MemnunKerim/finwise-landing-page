@@ -209,7 +209,7 @@ const ReservationForm: React.FC = () => {
             disabled={!validateStep(currentStep) || submitting}
             className="flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition"
           >
-            {submitting ? "Gönderiliyor..." : "Rezervasyonu Oluştur"}
+            {submitting ? 'Gönderiliyor...' : 'Rezervasyonu Oluştur'}
           </button>
         )}
       </div>
@@ -220,8 +220,8 @@ const ReservationForm: React.FC = () => {
           toast === "success" ? "bg-green-600" : "bg-red-600"
         }`}>
           {toast === "success" 
-            ? `Rezervasyonunuz oluşturuldu! ${reservationNo ? `Rezervasyon No: ${reservationNo}` : "En kısa sürede sizinle iletişime geçeceğiz."}`
-            : "Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin."
+            ? `Rezervasyonunuz oluşturuldu! ${reservationNo ? `Rezervasyon No: ${reservationNo}` : 'En kısa sürede sizinle iletişime geçeceğiz.'}`
+            : 'Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.'
           }
         </div>
       )}
@@ -471,7 +471,7 @@ const SummaryStep: React.FC<{
 
     <div className="bg-green-50 border border-green-200 rounded-lg p-4">
       <p className="text-sm text-green-800">
-        <strong>🎉 Son Adım!</strong> Rezervasyonunuzu oluşturmak için "Rezervasyonu Oluştur" butonuna tıklayın. 
+        <strong>🎉 Son Adım!</strong> Rezervasyonunuzu oluşturmak için &quot;Rezervasyonu Oluştur&quot; butonuna tıklayın. 
         Ekibimiz 2 saat içinde sizinle iletişime geçerek detayları onaylayacaktır.
       </p>
     </div>
