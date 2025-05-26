@@ -1,10 +1,19 @@
 /* new – ContactForm.tsx */
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ContactForm: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
+  /* toast == null → görünmez | "success" | "error" */
+  const [toast, setToast] = useState<"success" | "error" | null>(null);
+
+  /* 4 sn sonra kendiliğinden kaybolsun */
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 4000);
+    return () => clearTimeout(t);
+  }, [toast]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,10 +49,10 @@ const ContactForm: React.FC = () => {
     })
       .then((res) => {
         if (!res.ok) throw new Error("Bad Request");
-        form.reset();                           /* 👉 güvenli reset */
-        alert("Talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.");
+        form.reset();            /* 👉 güvenli reset */
+        setToast("success");
       })
-      .catch(() => alert("Gönderim sırasında bir hata oluştu."))
+      .catch(() => setToast("error"))
       .finally(() => setSubmitting(false));
   };
 
@@ -140,6 +149,17 @@ const ContactForm: React.FC = () => {
       >
         {submitting ? "Gönderiliyor…" : "Gönder"}
       </button>
+      {/* 🔔 Toast bildirimi */}
+      {toast && (
+        <div
+          className={`fixed bottom-6 left-1/2 -translate-x-1/2 rounded-lg px-6 py-3 text-white shadow-lg
+          ${toast === "success" ? "bg-green-600" : "bg-red-600"}`}
+        >
+          {toast === "success"
+            ? "Talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz."
+            : "Gönderim sırasında bir hata oluştu."}
+        </div>
+      )}
     </form>
   );
 };

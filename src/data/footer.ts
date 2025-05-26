@@ -14,8 +14,9 @@ export const footerDetails: {
     { text: "Fiyatlar", url: "/#fiyatlar" },
     { text: "SSS", url: "/#faq" },
     { text: "İletişim", url: "/iletisim" },
+    { text: "Rezervasyon", url: "/rezervasyon" },
   ],
-    email: 'help@paletdepo.com',
+    email: 'selam@paletdepo.com',
     telephone: "+90 212 758 42 14",
     socials: {
         // github: 'https://github.com',
