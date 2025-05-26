@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   BsCheckCircleFill, 
@@ -13,42 +13,18 @@ import {
 } from "react-icons/bs";
 
 interface ReservationData {
-  // Kişisel Bilgiler
+  // Kişisel Bilgiler (Backend ile uyumlu)
   firstName: string;
   lastName: string;
   company: string;
   phone: string;
   email: string;
   
-  // Ürün Bilgileri
-  productType: string;
-  productDescription: string;
-  productValue: string;
-  specialRequirements: string;
-  temperatureRequirement: string;
-  hazardousMaterial: boolean;
-  
-  // Palet Bilgileri
-  paletCount: number;
-  paletDimensions: string;
-  totalWeight: string;
-  stackable: boolean;
-  
-  // Depolama Bilgileri
-  startDate: string;
-  estimatedDuration: string;
-  durationType: 'days' | 'weeks' | 'months';
-  serviceType: 'daily' | 'monthly';
-  
-  // Ek Hizmetler
-  needsHandling: boolean;
-  needsPalletizing: boolean;
-  needsWrapping: boolean;
-  needsLabeling: boolean;
-  
-  // Yasal
-  termsAccepted: boolean;
-  kvkkConsent: boolean;
+  // Rezervasyon Bilgileri
+  palletCount: number;
+  plannedDate: string;
+  plannedDuration: number; // gün cinsinden
+  note: string;
 }
 
 const initialData: ReservationData = {
@@ -57,33 +33,17 @@ const initialData: ReservationData = {
   company: "",
   phone: "",
   email: "",
-  productType: "",
-  productDescription: "",
-  productValue: "",
-  specialRequirements: "",
-  temperatureRequirement: "normal",
-  hazardousMaterial: false,
-  paletCount: 1,
-  paletDimensions: "120x80x150",
-  totalWeight: "",
-  stackable: true,
-  startDate: "",
-  estimatedDuration: "",
-  durationType: 'days',
-  serviceType: 'daily',
-  needsHandling: false,
-  needsPalletizing: false,
-  needsWrapping: false,
-  needsLabeling: false,
-  termsAccepted: false,
-  kvkkConsent: false,
+  palletCount: 1,
+  plannedDate: "",
+  plannedDuration: 7,
+  note: "",
 };
 
 const steps = [
   { id: 1, title: "Kişisel Bilgiler", icon: BsPerson },
-  { id: 2, title: "Ürün Detayları", icon: BsBoxSeam },
-  { id: 3, title: "Depolama Planı", icon: BsCalendarDate },
-  { id: 4, title: "Maliyet Özeti", icon: BsCalculator },
+  { id: 2, title: "Rezervasyon Detayları", icon: BsBoxSeam },
+  { id: 3, title: "Tarih ve Süre", icon: BsCalendarDate },
+  { id: 4, title: "Özet ve Onay", icon: BsCalculator },
 ];
 
 const ReservationForm: React.FC = () => {
@@ -92,6 +52,7 @@ const ReservationForm: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [toast, setToast] = useState<"success" | "error" | null>(null);
   const [estimatedCost, setEstimatedCost] = useState(0);
+  const [reservationNo, setReservationNo] = useState("");
 
   // Toast otomatik kapanma
   useEffect(() => {
@@ -100,49 +61,21 @@ const ReservationForm: React.FC = () => {
     return () => clearTimeout(timer);
   }, [toast]);
 
-  // Maliyet hesaplama
+  // Maliyet hesaplama fonksiyonu
+  const calculateCost = useCallback(() => {
+    const dailyRate = 750; // ₺750/palet/ay (backend default)
+    const dailyCost = dailyRate / 30; // Günlük maliyet
+    
+    const cost = formData.palletCount * dailyCost * formData.plannedDuration;
+    setEstimatedCost(Math.round(cost));
+  }, [formData.palletCount, formData.plannedDuration]);
+
+  // Maliyet hesaplama effect'i
   useEffect(() => {
     calculateCost();
-  }, [formData.paletCount, formData.serviceType, formData.estimatedDuration, formData.durationType]);
+  }, [calculateCost]);
 
-  const calculateCost = () => {
-    const dailyRate = 30; // ₺30/palet/gün
-    const monthlyRate = 750; // ₺750/palet/ay
-    
-    let days = 0;
-    const duration = parseInt(formData.estimatedDuration) || 0;
-    
-    switch (formData.durationType) {
-      case 'days':
-        days = duration;
-        break;
-      case 'weeks':
-        days = duration * 7;
-        break;
-      case 'months':
-        days = duration * 30;
-        break;
-    }
-
-    let cost = 0;
-    if (formData.serviceType === 'daily') {
-      cost = formData.paletCount * dailyRate * days;
-    } else {
-      cost = formData.paletCount * monthlyRate * Math.ceil(days / 30);
-    }
-
-    // Ek hizmet maliyetleri
-    const additionalServices = [
-      formData.needsHandling && 50,
-      formData.needsPalletizing && 25,
-      formData.needsWrapping && 15,
-      formData.needsLabeling && 10,
-    ].filter(Boolean).reduce((sum: number, cost) => sum + (cost as number), 0);
-
-    setEstimatedCost(cost + (additionalServices * formData.paletCount));
-  };
-
-  const updateFormData = (field: keyof ReservationData, value: any) => {
+  const updateFormData = (field: keyof ReservationData, value: string | number) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -161,13 +94,13 @@ const ReservationForm: React.FC = () => {
   const validateStep = (step: number): boolean => {
     switch (step) {
       case 1:
-        return !!(formData.firstName && formData.lastName && formData.phone && formData.email);
+        return !!(formData.firstName && formData.lastName && formData.phone && formData.email && formData.company);
       case 2:
-        return !!(formData.productType && formData.productDescription && formData.paletCount > 0);
+        return formData.palletCount > 0;
       case 3:
-        return !!(formData.startDate && formData.estimatedDuration);
+        return !!(formData.plannedDate && formData.plannedDuration > 0);
       case 4:
-        return formData.termsAccepted && formData.kvkkConsent;
+        return true; // Özet sayfası, her zaman geçerli
       default:
         return true;
     }
@@ -178,27 +111,26 @@ const ReservationForm: React.FC = () => {
     
     setSubmitting(true);
     
-    const payload = {
-      ...formData,
-      estimatedCost,
-      formType: "reservation",
-      siteDomain: window.location.host,
-      submissionDate: new Date().toISOString(),
-    };
-
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reservation`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reservations`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          ...formData,
+          palletCount: Number(formData.palletCount),
+          plannedDuration: Number(formData.plannedDuration),
+        }),
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      const result = await response.json();
+
+      if (!response.ok) throw new Error(result.message || "Submission failed");
       
       setToast("success");
+      setReservationNo(result.reservationNo || "");
       setFormData(initialData);
       setCurrentStep(1);
     } catch (error) {
@@ -247,9 +179,9 @@ const ReservationForm: React.FC = () => {
           className="bg-white rounded-xl border border-gray-200 p-6 md:p-8"
         >
           {currentStep === 1 && <PersonalInfoStep formData={formData} updateFormData={updateFormData} />}
-          {currentStep === 2 && <ProductDetailsStep formData={formData} updateFormData={updateFormData} />}
-          {currentStep === 3 && <StoragePlanStep formData={formData} updateFormData={updateFormData} />}
-          {currentStep === 4 && <CostSummaryStep formData={formData} updateFormData={updateFormData} estimatedCost={estimatedCost} />}
+          {currentStep === 2 && <ReservationDetailsStep formData={formData} updateFormData={updateFormData} />}
+          {currentStep === 3 && <DateTimeStep formData={formData} updateFormData={updateFormData} />}
+          {currentStep === 4 && <SummaryStep formData={formData} estimatedCost={estimatedCost} />}
         </motion.div>
       </AnimatePresence>
 
@@ -277,7 +209,7 @@ const ReservationForm: React.FC = () => {
             disabled={!validateStep(currentStep) || submitting}
             className="flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition"
           >
-            {submitting ? "Gönderiliyor..." : "Rezervasyonu Tamamla"}
+            {submitting ? "Gönderiliyor..." : "Rezervasyonu Oluştur"}
           </button>
         )}
       </div>
@@ -288,7 +220,7 @@ const ReservationForm: React.FC = () => {
           toast === "success" ? "bg-green-600" : "bg-red-600"
         }`}>
           {toast === "success" 
-            ? "Rezervasyon talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz." 
+            ? `Rezervasyonunuz oluşturuldu! ${reservationNo ? `Rezervasyon No: ${reservationNo}` : "En kısa sürede sizinle iletişime geçeceğiz."}`
             : "Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin."
           }
         </div>
@@ -300,7 +232,7 @@ const ReservationForm: React.FC = () => {
 // Step Components
 const PersonalInfoStep: React.FC<{
   formData: ReservationData;
-  updateFormData: (field: keyof ReservationData, value: any) => void;
+  updateFormData: (field: keyof ReservationData, value: string | number) => void;
 }> = ({ formData, updateFormData }) => (
   <div className="space-y-6">
     <h3 className="text-2xl font-bold mb-6">Kişisel ve Şirket Bilgileri</h3>
@@ -326,10 +258,11 @@ const PersonalInfoStep: React.FC<{
 
     <input
       type="text"
-      placeholder="Şirket Adı"
+      placeholder="Şirket Adı *"
       value={formData.company}
       onChange={(e) => updateFormData('company', e.target.value)}
       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+      required
     />
 
     <div className="grid md:grid-cols-2 gap-4">
@@ -353,309 +286,193 @@ const PersonalInfoStep: React.FC<{
   </div>
 );
 
-const ProductDetailsStep: React.FC<{
+const ReservationDetailsStep: React.FC<{
   formData: ReservationData;
-  updateFormData: (field: keyof ReservationData, value: any) => void;
+  updateFormData: (field: keyof ReservationData, value: string | number) => void;
 }> = ({ formData, updateFormData }) => (
   <div className="space-y-6">
-    <h3 className="text-2xl font-bold mb-6">Ürün ve Palet Detayları</h3>
+    <h3 className="text-2xl font-bold mb-6">Rezervasyon Detayları</h3>
     
-    <div className="grid md:grid-cols-2 gap-4">
-      <select
-        value={formData.productType}
-        onChange={(e) => updateFormData('productType', e.target.value)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-        required
-      >
-        <option value="">Ürün Türü Seçin *</option>
-        <option value="gida">Gıda Ürünleri</option>
-        <option value="tekstil">Tekstil</option>
-        <option value="elektronik">Elektronik</option>
-        <option value="mobilya">Mobilya</option>
-        <option value="kimyasal">Kimyasal Ürünler</option>
-        <option value="otomotiv">Otomotiv Parçaları</option>
-        <option value="diger">Diğer</option>
-      </select>
-
-      <input
-        type="number"
-        placeholder="Palet Sayısı *"
-        min="1"
-        value={formData.paletCount}
-        onChange={(e) => updateFormData('paletCount', parseInt(e.target.value) || 0)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-        required
-      />
-    </div>
-
-    <textarea
-      placeholder="Ürün Açıklaması *"
-      value={formData.productDescription}
-      onChange={(e) => updateFormData('productDescription', e.target.value)}
-      rows={3}
-      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-      required
-    />
-
-    <div className="grid md:grid-cols-2 gap-4">
-      <select
-        value={formData.paletDimensions}
-        onChange={(e) => updateFormData('paletDimensions', e.target.value)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-      >
-        <option value="120x80x150">Standart Palet (120x80x150 cm)</option>
-        <option value="120x100x150">Euro Palet (120x100x150 cm)</option>
-        <option value="custom">Özel Boyut</option>
-      </select>
-
-      <input
-        type="text"
-        placeholder="Toplam Ağırlık (kg)"
-        value={formData.totalWeight}
-        onChange={(e) => updateFormData('totalWeight', e.target.value)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-      />
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-4">
-      <input
-        type="text"
-        placeholder="Tahmini Değer (₺)"
-        value={formData.productValue}
-        onChange={(e) => updateFormData('productValue', e.target.value)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-      />
-
-      <select
-        value={formData.temperatureRequirement}
-        onChange={(e) => updateFormData('temperatureRequirement', e.target.value)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-      >
-        <option value="normal">Normal Oda Sıcaklığı</option>
-        <option value="cool">Serin Ortam (10-15°C)</option>
-        <option value="cold">Soğuk Depo (2-8°C)</option>
-        <option value="frozen">Dondurulmuş (-18°C)</option>
-      </select>
-    </div>
-
-    <div className="space-y-4">
-      <label className="flex items-center gap-3">
-        <input
-          type="checkbox"
-          checked={formData.stackable}
-          onChange={(e) => updateFormData('stackable', e.target.checked)}
-          className="w-5 h-5 text-primary"
-        />
-        <span>Paletler üst üste istifleme için uygun</span>
-      </label>
-
-      <label className="flex items-center gap-3">
-        <input
-          type="checkbox"
-          checked={formData.hazardousMaterial}
-          onChange={(e) => updateFormData('hazardousMaterial', e.target.checked)}
-          className="w-5 h-5 text-primary"
-        />
-        <span>Tehlikeli madde içerir</span>
-      </label>
-    </div>
-
-    <textarea
-      placeholder="Özel Gereksinimler (isteğe bağlı)"
-      value={formData.specialRequirements}
-      onChange={(e) => updateFormData('specialRequirements', e.target.value)}
-      rows={3}
-      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-    />
-  </div>
-);
-
-const StoragePlanStep: React.FC<{
-  formData: ReservationData;
-  updateFormData: (field: keyof ReservationData, value: any) => void;
-}> = ({ formData, updateFormData }) => (
-  <div className="space-y-6">
-    <h3 className="text-2xl font-bold mb-6">Depolama Planı ve Ek Hizmetler</h3>
-    
-    <div className="grid md:grid-cols-2 gap-4">
-      <input
-        type="date"
-        value={formData.startDate}
-        onChange={(e) => updateFormData('startDate', e.target.value)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-        required
-      />
-
-      <div className="flex gap-2">
+    <div className="grid md:grid-cols-2 gap-6">
+      <div>
+        <label className="block text-sm font-medium mb-2">Palet Sayısı *</label>
         <input
           type="number"
-          placeholder="Süre *"
           min="1"
-          value={formData.estimatedDuration}
-          onChange={(e) => updateFormData('estimatedDuration', e.target.value)}
-          className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+          value={formData.palletCount}
+          onChange={(e) => updateFormData('palletCount', parseInt(e.target.value) || 1)}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
           required
         />
-        <select
-          value={formData.durationType}
-          onChange={(e) => updateFormData('durationType', e.target.value)}
-          className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-        >
-          <option value="days">Gün</option>
-          <option value="weeks">Hafta</option>
-          <option value="months">Ay</option>
-        </select>
+        <p className="text-xs text-gray-500 mt-1">Minimum 1 palet</p>
+      </div>
+
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h4 className="font-semibold text-blue-800 mb-2">💡 Bilgi</h4>
+        <p className="text-sm text-blue-700">
+          Standart palet boyutu: 120x80x150 cm<br />
+          Maksimum ağırlık: 1000 kg/palet
+        </p>
       </div>
     </div>
 
     <div>
-      <label className="block text-sm font-medium mb-3">Fiyatlandırma Modeli *</label>
-      <div className="grid md:grid-cols-2 gap-4">
-        <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-          <input
-            type="radio"
-            name="serviceType"
-            value="daily"
-            checked={formData.serviceType === 'daily'}
-            onChange={(e) => updateFormData('serviceType', e.target.value)}
-            className="mr-3"
-          />
-          <div>
-            <div className="font-semibold">Günlük Fiyatlandırma</div>
-            <div className="text-sm text-gray-600">₺30/palet/gün</div>
-          </div>
-        </label>
-        <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-          <input
-            type="radio"
-            name="serviceType"
-            value="monthly"
-            checked={formData.serviceType === 'monthly'}
-            onChange={(e) => updateFormData('serviceType', e.target.value)}
-            className="mr-3"
-          />
-          <div>
-            <div className="font-semibold">Aylık Abonelik</div>
-            <div className="text-sm text-gray-600">₺750/palet/ay</div>
-          </div>
-        </label>
-      </div>
-    </div>
-
-    <div>
-      <label className="block text-sm font-medium mb-3">Ek Hizmetler</label>
-      <div className="grid md:grid-cols-2 gap-4">
-        <label className="flex items-center gap-3">
-          <input
-            type="checkbox"
-            checked={formData.needsHandling}
-            onChange={(e) => updateFormData('needsHandling', e.target.checked)}
-            className="w-5 h-5 text-primary"
-          />
-          <span>Elleçleme Hizmeti (+₺50/palet)</span>
-        </label>
-
-        <label className="flex items-center gap-3">
-          <input
-            type="checkbox"
-            checked={formData.needsPalletizing}
-            onChange={(e) => updateFormData('needsPalletizing', e.target.checked)}
-            className="w-5 h-5 text-primary"
-          />
-          <span>Paletleme (+₺25/palet)</span>
-        </label>
-
-        <label className="flex items-center gap-3">
-          <input
-            type="checkbox"
-            checked={formData.needsWrapping}
-            onChange={(e) => updateFormData('needsWrapping', e.target.checked)}
-            className="w-5 h-5 text-primary"
-          />
-          <span>Streç Sarma (+₺15/palet)</span>
-        </label>
-
-        <label className="flex items-center gap-3">
-          <input
-            type="checkbox"
-            checked={formData.needsLabeling}
-            onChange={(e) => updateFormData('needsLabeling', e.target.checked)}
-            className="w-5 h-5 text-primary"
-          />
-          <span>Etiketleme (+₺10/palet)</span>
-        </label>
-      </div>
+      <label className="block text-sm font-medium mb-2">Ek Notlar</label>
+      <textarea
+        placeholder="Özel gereksinimleriniz, ürün detayları vb. (isteğe bağlı)"
+        value={formData.note}
+        onChange={(e) => updateFormData('note', e.target.value)}
+        rows={4}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+      />
     </div>
   </div>
 );
 
-const CostSummaryStep: React.FC<{
+const DateTimeStep: React.FC<{
   formData: ReservationData;
-  updateFormData: (field: keyof ReservationData, value: any) => void;
+  updateFormData: (field: keyof ReservationData, value: string | number) => void;
+}> = ({ formData, updateFormData }) => {
+  // Bugünden itibaren tarih seçimi için minimum tarih
+  const today = new Date();
+  today.setDate(today.getDate() + 1); // En erken yarın
+  const minDate = today.toISOString().slice(0, 10);
+
+  return (
+    <div className="space-y-6">
+      <h3 className="text-2xl font-bold mb-6">Tarih ve Süre Planlaması</h3>
+      
+      <div className="grid md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-medium mb-2">Depolama Başlangıç Tarihi *</label>
+          <input
+            type="date"
+            min={minDate}
+            value={formData.plannedDate}
+            onChange={(e) => updateFormData('plannedDate', e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+            required
+          />
+          <p className="text-xs text-gray-500 mt-1">En erken yarın tarihini seçebilirsiniz</p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">Planlanan Süre (Gün) *</label>
+          <select
+            value={formData.plannedDuration}
+            onChange={(e) => updateFormData('plannedDuration', parseInt(e.target.value))}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+            required
+          >
+            <option value="">Süre seçin</option>
+            <option value={7}>1 Hafta (7 gün)</option>
+            <option value={14}>2 Hafta (14 gün)</option>
+            <option value={30}>1 Ay (30 gün)</option>
+            <option value={60}>2 Ay (60 gün)</option>
+            <option value={90}>3 Ay (90 gün)</option>
+            <option value={180}>6 Ay (180 gün)</option>
+            <option value={365}>1 Yıl (365 gün)</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <h4 className="font-semibold text-yellow-800 mb-2">📅 Planlama Bilgisi</h4>
+        <p className="text-sm text-yellow-700">
+          Seçtiğiniz süre tahmini bir süredir. İhtiyaçlarınıza göre süreyi uzatabilir veya erken teslim alabilirsiniz.
+          Kesin süre ve koşullar rezervasyon onayında belirtilecektir.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const SummaryStep: React.FC<{
+  formData: ReservationData;
   estimatedCost: number;
-}> = ({ formData, updateFormData, estimatedCost }) => (
+}> = ({ formData, estimatedCost }) => (
   <div className="space-y-6">
-    <h3 className="text-2xl font-bold mb-6">Rezervasyon Özeti ve Onay</h3>
+    <h3 className="text-2xl font-bold mb-6">Rezervasyon Özeti</h3>
     
-    <div className="bg-gray-50 rounded-lg p-6">
-      <h4 className="text-lg font-semibold mb-4">Maliyet Hesaplaması</h4>
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Müşteri Bilgileri */}
+      <div className="bg-gray-50 rounded-lg p-6">
+        <h4 className="text-lg font-semibold mb-4 text-gray-800">Müşteri Bilgileri</h4>
+        <div className="space-y-2 text-sm">
+          <div className="flex justify-between">
+            <span className="font-medium">Ad Soyad:</span>
+            <span>{formData.firstName} {formData.lastName}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-medium">Şirket:</span>
+            <span>{formData.company}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-medium">E-posta:</span>
+            <span>{formData.email}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-medium">Telefon:</span>
+            <span>{formData.phone}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Rezervasyon Detayları */}
+      <div className="bg-gray-50 rounded-lg p-6">
+        <h4 className="text-lg font-semibold mb-4 text-gray-800">Rezervasyon Detayları</h4>
+        <div className="space-y-2 text-sm">
+          <div className="flex justify-between">
+            <span className="font-medium">Palet Sayısı:</span>
+            <span>{formData.palletCount} adet</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-medium">Başlangıç Tarihi:</span>
+            <span>{new Date(formData.plannedDate).toLocaleDateString('tr-TR')}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-medium">Planlanan Süre:</span>
+            <span>{formData.plannedDuration} gün</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Maliyet Hesaplaması */}
+    <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
+      <h4 className="text-lg font-semibold mb-4">Tahmini Maliyet</h4>
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
-          <span>Palet Sayısı:</span>
-          <span>{formData.paletCount} adet</span>
+          <span>Günlük Ücret (palet başı):</span>
+          <span>₺25</span>
         </div>
         <div className="flex justify-between">
-          <span>Süre:</span>
-          <span>{formData.estimatedDuration} {formData.durationType === 'days' ? 'gün' : formData.durationType === 'weeks' ? 'hafta' : 'ay'}</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Fiyatlandırma:</span>
-          <span>{formData.serviceType === 'daily' ? 'Günlük' : 'Aylık'}</span>
+          <span>Toplam Süre:</span>
+          <span>{formData.palletCount} palet × {formData.plannedDuration} gün</span>
         </div>
         <hr className="my-3" />
-        <div className="flex justify-between text-lg font-bold">
+        <div className="flex justify-between text-lg font-bold text-primary">
           <span>Tahmini Toplam:</span>
           <span>₺{estimatedCost.toLocaleString('tr-TR')}</span>
         </div>
       </div>
+      <p className="text-xs text-gray-600 mt-3">
+        * Bu tahmini bir hesaplamadır. Kesin fiyat rezervasyon onayında belirtilecektir.
+      </p>
     </div>
 
-    <div className="space-y-4">
-      <label className="flex items-start gap-3">
-        <input
-          type="checkbox"
-          checked={formData.termsAccepted}
-          onChange={(e) => updateFormData('termsAccepted', e.target.checked)}
-          className="w-5 h-5 text-primary mt-0.5"
-          required
-        />
-        <span className="text-sm">
-          <a href="#" className="text-primary underline">Hizmet Şartları</a> ve 
-          <a href="#" className="text-primary underline"> Fiyatlandırma Politikası</a>'nı okudum ve kabul ediyorum.
-        </span>
-      </label>
+    {/* Notlar */}
+    {formData.note && (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h4 className="font-semibold text-blue-800 mb-2">Ek Notlarınız</h4>
+        <p className="text-sm text-blue-700">{formData.note}</p>
+      </div>
+    )}
 
-      <label className="flex items-start gap-3">
-        <input
-          type="checkbox"
-          checked={formData.kvkkConsent}
-          onChange={(e) => updateFormData('kvkkConsent', e.target.checked)}
-          className="w-5 h-5 text-primary mt-0.5"
-          required
-        />
-        <span className="text-sm">
-          Kişisel verilerimin, Memnun Depo Nakliyat Lojistik San. ve Tic. tarafından 
-          <a href="#" className="text-primary underline"> KVKK Aydınlatma Metni</a>'nde 
-          açıklandığı şekilde işlenmesini kabul ediyorum.
-        </span>
-      </label>
-    </div>
-
-    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <p className="text-sm text-blue-800">
-        <strong>Önemli Not:</strong> Bu rezervasyon talebi bir ön taleptir. 
-        Ekibimiz 2 saat içinde sizinle iletişime geçerek detayları onaylayacak ve 
-        kesin rezervasyon için gerekli adımları atacaktır.
+    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+      <p className="text-sm text-green-800">
+        <strong>🎉 Son Adım!</strong> Rezervasyonunuzu oluşturmak için "Rezervasyonu Oluştur" butonuna tıklayın. 
+        Ekibimiz 2 saat içinde sizinle iletişime geçerek detayları onaylayacaktır.
       </p>
     </div>
   </div>
