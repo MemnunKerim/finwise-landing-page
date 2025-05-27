@@ -199,22 +199,22 @@ function getHeroImageForPost(slug: string): {src: string, alt: string} {
     };
   } else if (slug.includes('b2b-lojistik')) {
     return { 
-      src: '/images/service-handling.jpg', 
+      src: '/images/blog-b2b-lojistik.png', 
       alt: 'B2B Lojistik ve Kargo Entegrasyonu' 
     };
   } else if (slug.includes('cross-docking')) {
     return { 
-      src: '/images/service-unitload.jpg', 
+      src: '/images/blog-cross-docking.png', 
       alt: 'Cross-docking ve Transit Depolama' 
     };
   } else if (slug.includes('guvenlik')) {
     return { 
-      src: '/images/service-digital.jpg', 
+      src: '/images/blog-depo-guvenlik.png', 
       alt: 'Depo Güvenliği ve Sigorta' 
     };
   } else if (slug.includes('kucuk-isletme')) {
     return { 
-      src: '/images/warehouse-hero.webp', 
+      src: '/images/blog-kucuk-isletme.png', 
       alt: 'Küçük İşletme Depo Çözümleri' 
     };
   }

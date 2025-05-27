@@ -73,13 +73,21 @@ export default async function BlogPost({ params }: Props) {
         
         {/* Content Container with Newspaper Style */}
         <div className="max-w-7xl mx-auto">
-          <div className="lg:columns-2 lg:gap-12 xl:columns-3 xl:gap-16">
+          <div className="lg:columns-2 lg:gap-12 xl:columns-3 xl:gap-16" style={{ wordBreak: 'break-word', overflow: 'hidden' }}>
             {processedSections.map((section) => {
               if (section.type === 'content') {
                 return (
                   <div 
                     key={section.index}
-                    className="prose prose-lg prose-blue mb-8 lg:mb-12 break-inside-avoid prose-headings:text-gray-900 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-h2:break-after-avoid prose-h3:break-after-avoid"
+                    className="prose prose-lg prose-blue mb-8 lg:mb-12 break-inside-avoid prose-headings:text-gray-900 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-800 prose-strong:text-gray-900 prose-ul:text-gray-800 prose-ol:text-gray-800 prose-code:bg-gray-800 prose-code:text-white prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-800 prose-pre:text-white prose-h2:break-after-avoid prose-h3:break-after-avoid prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap"
+                    style={{ 
+                      wordWrap: 'break-word', 
+                      overflowWrap: 'break-word', 
+                      hyphens: 'auto',
+                      maxWidth: '100%',
+                      minWidth: 0,
+                      overflow: 'hidden'
+                    }}
                     dangerouslySetInnerHTML={{ __html: section.processedContent || '' }}
                   />
                 );
