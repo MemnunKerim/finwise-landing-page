@@ -73,7 +73,6 @@ export default async function BlogPost({ params }: Props) {
         
         {/* Content Container with Newspaper Style */}
         <div className="max-w-7xl mx-auto">
-          {/* Content and Image Sections */}
           <div className="lg:columns-2 lg:gap-12 xl:columns-3 xl:gap-16">
             {processedSections.map((section) => {
               if (section.type === 'content') {
@@ -84,28 +83,29 @@ export default async function BlogPost({ params }: Props) {
                     dangerouslySetInnerHTML={{ __html: section.processedContent || '' }}
                   />
                 );
+              } else if (section.type === 'image') {
+                return (
+                  <div 
+                    key={section.index}
+                    className="mb-8 lg:mb-12 break-inside-avoid"
+                    style={{ columnSpan: 'all' }}
+                  >
+                    <div className="bg-gray-100 p-6 rounded-lg flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-16 h-16 mx-auto mb-3 bg-gray-300 rounded-lg flex items-center justify-center">
+                          <span className="text-2xl">📸</span>
+                        </div>
+                        <p className="text-gray-600 text-sm mb-0">
+                          Görsel alanı - Bu bölüme konuyla ilgili görsel eklenecek
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
               }
               return null;
             })}
           </div>
-          
-          {/* Image Sections - Full Width */}
-          {processedSections
-            .filter(section => section.type === 'image')
-            .map((section) => (
-              <BlogImageSection
-                key={section.index}
-                imageSrc={section.imageSrc!}
-                imageAlt={section.imageAlt!}
-                imageAtRight={section.imageAtRight}
-              >
-                <div className="bg-gray-100 p-6 rounded-lg">
-                  <p className="text-gray-600 mb-0">
-                    📸 Görsel alanı - Bu bölüme konuyla ilgili görsel eklenecek
-                  </p>
-                </div>
-              </BlogImageSection>
-            ))}
         </div>
       </article>
     </div>
