@@ -71,18 +71,28 @@ export default async function BlogPost({ params }: Props) {
           />
         </div>
         
-        {/* Sections */}
-        {processedSections.map((section) => {
-          if (section.type === 'content') {
-            return (
-              <div 
-                key={section.index}
-                className="prose prose-lg prose-blue max-w-4xl mx-auto mb-8 prose-headings:text-gray-900 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded"
-                dangerouslySetInnerHTML={{ __html: section.processedContent || '' }}
-              />
-            );
-          } else if (section.type === 'image') {
-            return (
+        {/* Content Container with Newspaper Style */}
+        <div className="max-w-7xl mx-auto">
+          {/* Content and Image Sections */}
+          <div className="lg:columns-2 lg:gap-12 xl:columns-3 xl:gap-16">
+            {processedSections.map((section) => {
+              if (section.type === 'content') {
+                return (
+                  <div 
+                    key={section.index}
+                    className="prose prose-lg prose-blue mb-8 lg:mb-12 break-inside-avoid prose-headings:text-gray-900 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-h2:break-after-avoid prose-h3:break-after-avoid"
+                    dangerouslySetInnerHTML={{ __html: section.processedContent || '' }}
+                  />
+                );
+              }
+              return null;
+            })}
+          </div>
+          
+          {/* Image Sections - Full Width */}
+          {processedSections
+            .filter(section => section.type === 'image')
+            .map((section) => (
               <BlogImageSection
                 key={section.index}
                 imageSrc={section.imageSrc!}
@@ -95,10 +105,8 @@ export default async function BlogPost({ params }: Props) {
                   </p>
                 </div>
               </BlogImageSection>
-            );
-          }
-          return null;
-        })}
+            ))}
+        </div>
       </article>
     </div>
   );
