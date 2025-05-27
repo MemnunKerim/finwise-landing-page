@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blogPosts";
 import { getBlogPost, ProcessedBlogSection } from "@/lib/blog";
-import BlogImageSection from "@/components/BlogImageSection";
+//import BlogImageSection from "@/components/BlogImageSection";
 import { remark } from 'remark';
 import html from 'remark-html';
 import Image from 'next/image';
