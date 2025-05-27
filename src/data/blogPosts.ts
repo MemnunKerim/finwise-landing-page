@@ -8,6 +8,34 @@ export interface BlogMeta {
 
 export const blogPosts: BlogMeta[] = [
   {
+    slug: "kucuk-isletme-depo-cozumleri",
+    title: "Küçük İşletmeler için Depo Çözümleri: Büyümeye Hazır Lojistik",
+    excerpt:
+      "Girişimden büyümeye, küçük işletmeler için maliyet etkin ve ölçeklenebilir depo çözümleri. Esnek fiyatlandırma ile büyümenizi destekleyin.",
+    date: "2025-05-27",
+  },
+  {
+    slug: "depo-guvenlik-sigorta",
+    title: "Depo Güvenliği ve Sigorta: Riski Minimize Etme Rehberi",
+    excerpt:
+      "Modern güvenlik teknolojileri, sigorta stratejileri ve risk yönetimi ile deponuzu koruyun. Kapsamlı güvenlik rehberi.",
+    date: "2025-05-26",
+  },
+  {
+    slug: "cross-docking-transit-depolama",
+    title: "Cross-docking ve Transit Depolama: Hızlı Dağıtım Çözümleri",
+    excerpt:
+      "Walmart ve Amazon'un kullandığı cross-docking stratejileri ile stok maliyetlerinizi %70'e varan oranda azaltın.",
+    date: "2025-05-25",
+  },
+  {
+    slug: "b2b-lojistik-kargo-entegrasyonu",
+    title: "B2B Lojistik ve Kargo Entegrasyonu: Çoklu Kargo Yönetimi",
+    excerpt:
+      "Aras'tan MNG'ye, tüm kargo firmalarıyla akıllı entegrasyon. API entegrasyonu ve maliyet optimizasyonu stratejileri.",
+    date: "2025-05-24",
+  },
+  {
     slug: "palet-depolama-maliyeti-nasil-optimize-edilir",
     title: "Palet Depolama Maliyeti Nasıl Optimize Edilir?",
     excerpt:
@@ -25,7 +53,7 @@ export const blogPosts: BlogMeta[] = [
     slug: "wms-entegrasyonu-ile-canli-stok-takibi",
     title: "WMS Entegrasyonu ile Canlı Stok Takibi",
     excerpt:
-      "MERN tabanlı WMS’imizle gerçek zamanlı stok izleme, raporlama ve API entegrasyonu örnekleri.",
+      "MERN tabanlı WMS'imizle gerçek zamanlı stok izleme, raporlama ve API entegrasyonu örnekleri.",
     date: "2025-05-01",
   },
 ];

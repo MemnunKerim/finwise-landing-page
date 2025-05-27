@@ -197,6 +197,26 @@ function getHeroImageForPost(slug: string): {src: string, alt: string} {
       src: '/images/blog-FulfillmentDepoSecimi.png', 
       alt: 'E-ticarette Fulfillment ve Depo Seçimi' 
     };
+  } else if (slug.includes('b2b-lojistik')) {
+    return { 
+      src: '/images/service-handling.jpg', 
+      alt: 'B2B Lojistik ve Kargo Entegrasyonu' 
+    };
+  } else if (slug.includes('cross-docking')) {
+    return { 
+      src: '/images/service-unitload.jpg', 
+      alt: 'Cross-docking ve Transit Depolama' 
+    };
+  } else if (slug.includes('guvenlik')) {
+    return { 
+      src: '/images/service-digital.jpg', 
+      alt: 'Depo Güvenliği ve Sigorta' 
+    };
+  } else if (slug.includes('kucuk-isletme')) {
+    return { 
+      src: '/images/warehouse-hero.webp', 
+      alt: 'Küçük İşletme Depo Çözümleri' 
+    };
   }
   
   return { 
