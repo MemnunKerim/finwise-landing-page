@@ -99,6 +99,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
   width={900}
   height={600}
   quality={100}
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 900px"
   loading="lazy"             /* Hero dışı görsellerde lazy‑load */
   className={clsx(
     "rounded-lg shadow-lg",
