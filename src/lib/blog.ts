@@ -28,6 +28,11 @@ export interface BlogSection {
   imageAtRight?: boolean;
 }
 
+export interface ProcessedBlogSection extends BlogSection {
+  index: number;
+  processedContent?: string;
+}
+
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
   const posts = [];
   
@@ -179,18 +184,18 @@ function getDummyImagesForPost(slug: string): Array<{src: string, alt: string}> 
 function getHeroImageForPost(slug: string): {src: string, alt: string} {
   if (slug.includes('wms')) {
     return { 
-      src: '/images/service-digital.jpg', 
-      alt: 'WMS Entegrasyonu ve Teknoloji' 
+      src: '/images/blog-WMSEntegrasyonuStokTakibi.png', 
+      alt: 'WMS Entegrasyonu ve Canlı Stok Takibi' 
     };
   } else if (slug.includes('maliyet')) {
     return { 
-      src: '/images/service-unitload.jpg', 
-      alt: 'Palet Depolama ve Maliyet Optimizasyonu' 
+      src: '/images/blog-DepolamaMaliyetiOptimizasyonu.png', 
+      alt: 'Palet Depolama Maliyeti Optimizasyonu' 
     };
   } else if (slug.includes('fulfillment')) {
     return { 
-      src: '/images/service-handling.jpg', 
-      alt: 'E-ticaret Fulfillment ve Lojistik' 
+      src: '/images/blog-FulfillmentDepoSecimi.png', 
+      alt: 'E-ticarette Fulfillment ve Depo Seçimi' 
     };
   }
   

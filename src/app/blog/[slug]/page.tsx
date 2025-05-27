@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blogPosts";
-import { getBlogPost } from "@/lib/blog";
+import { getBlogPost, ProcessedBlogSection } from "@/lib/blog";
 import BlogImageSection from "@/components/BlogImageSection";
 import { remark } from 'remark';
 import html from 'remark-html';
@@ -37,7 +37,7 @@ export default async function BlogPost({ params }: Props) {
   };
 
   // Process all content sections
-  const processedSections = await Promise.all(
+  const processedSections: ProcessedBlogSection[] = await Promise.all(
     post.sections.map(async (section, index) => {
       if (section.type === 'content') {
         const contentHtml = await markdownToHtml(section.content);
@@ -78,7 +78,7 @@ export default async function BlogPost({ params }: Props) {
               <div 
                 key={section.index}
                 className="prose prose-lg prose-blue max-w-4xl mx-auto mb-8 prose-headings:text-gray-900 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded"
-                dangerouslySetInnerHTML={{ __html: (section as any).processedContent }}
+                dangerouslySetInnerHTML={{ __html: section.processedContent || '' }}
               />
             );
           } else if (section.type === 'image') {
