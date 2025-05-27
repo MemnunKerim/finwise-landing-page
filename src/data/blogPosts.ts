@@ -8,6 +8,27 @@ export interface BlogMeta {
 
 export const blogPosts: BlogMeta[] = [
   {
+    slug: "soguk-zincir-lojistigi",
+    title: "Soğuk Zincir Lojistiği: Gıda ve İlaç Depolama Rehberi",
+    excerpt:
+      "Gıda güvenliği ve ilaç kalitesi söz konusu olduğunda, soğuk zincir lojistiği hayati önem taşır. Yanlış sıcaklık yönetimi, hem ürün kayıplarına hem de ciddi sağlık risklerine yol açabilir.",
+    date: "2024-01-25",
+  },
+  {
+    slug: "sezonsal-stok-yonetimi",
+    title: "Sezonsal Stok Yönetimi: Depolama Stratejileri ve Maliyet Optimizasyonu",
+    excerpt:
+      "Yazın klima, kışın soba satışları tavan yaparken, diğer dönemlerde bu ürünler depolarda yer kaplar. Sezonsal ürün satan işletmeler için stok yönetimi ve depolama maliyetleri ciddi bir sorun olabilir.",
+    date: "2024-01-20",
+  },
+  {
+    slug: "adr-tehlikeli-madde-depolama",
+    title: "ADR Tehlikeli Madde Depolama: Güvenlik ve Mevzuat Rehberi",
+    excerpt:
+      "Kimyasal maddeler, yakıtlar, boyalar veya temizlik ürünleri mi depoluyorsunuz? ADR sınıfına giren tehlikeli maddelerin depolanması, özel güvenlik önlemleri ve yasal düzenlemeler gerektirir.",
+    date: "2024-01-15",
+  },
+  {
     slug: "kucuk-isletme-depo-cozumleri",
     title: "Küçük İşletmeler için Depo Çözümleri: Büyümeye Hazır Lojistik",
     excerpt:

@@ -217,6 +217,21 @@ function getHeroImageForPost(slug: string): {src: string, alt: string} {
       src: '/images/blog-kucuk-isletme.png', 
       alt: 'Küçük İşletme Depo Çözümleri' 
     };
+  } else if (slug.includes('adr-tehlikeli')) {
+    return { 
+      src: '/images/blog-adr.png', 
+      alt: 'ADR Tehlikeli Madde Depolama' 
+    };
+  } else if (slug.includes('sezonsal-stok')) {
+    return { 
+      src: '/images/blog-sezonsal.png', 
+      alt: 'Sezonsal Stok Yönetimi' 
+    };
+  } else if (slug.includes('soguk-zincir')) {
+    return { 
+      src: '/images/blog-soguk-zincir.png', 
+      alt: 'Soğuk Zincir Lojistiği' 
+    };
   }
   
   return { 
