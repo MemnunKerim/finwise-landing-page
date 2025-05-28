@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteDetails.siteUrl,
   },
+  viewport: 'width=device-width, initial-scale=1',
+  themeColor: '#3B82F6', // Primary blue color
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,

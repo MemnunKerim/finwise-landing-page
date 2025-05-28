@@ -11,6 +11,8 @@ import CTA from "@/components/CTA";
 import Services from "@/components/Services";
 import ProcessFlow from "@/components/ProcessFlow";
 
+// Ana sayfa layout.tsx'ten metadata alıyor, ek metadata gerekmez
+
 
 
 const HomePage: React.FC = () => {
