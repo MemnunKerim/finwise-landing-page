@@ -5,6 +5,7 @@ import { getBlogPost, ProcessedBlogSection } from "@/lib/blog";
 import { remark } from 'remark';
 import html from 'remark-html';
 import Image from 'next/image';
+import Breadcrumb from "@/components/Breadcrumb";
 
 interface Props {
   params: { slug: string };
@@ -71,6 +72,43 @@ export default async function BlogPost({ params }: Props) {
   
   if (!post) return notFound();
 
+  // Blog için JSON-LD Schema
+  const blogImageUrl = `/images/blog-${post.slug.replace(/-/g, '')}.png`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": [
+      `https://paletdepo.com${blogImageUrl}`,
+      "https://paletdepo.com/images/warehouse-hero.webp"
+    ],
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "PaletDepo Ekibi",
+      "url": "https://paletdepo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PaletDepo - Memnun Depo Nakliyat Lojistik",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://paletdepo.com/images/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://paletdepo.com/blog/${post.slug}`
+    },
+    "url": `https://paletdepo.com/blog/${post.slug}`,
+    "articleSection": "Lojistik ve Depolama",
+    "keywords": `palet depolama, lojistik, ${post.title.toLowerCase()}, depo yönetimi, istanbul depo`,
+    "wordCount": post.sections.filter(s => s.type === 'content').join(' ').length,
+    "inLanguage": "tr-TR"
+  };
+
   // Function to convert markdown to HTML
   const markdownToHtml = async (content: string) => {
     const processedContent = await remark()
@@ -90,8 +128,26 @@ export default async function BlogPost({ params }: Props) {
     })
   );
 
+  const breadcrumbItems = [
+    { name: 'Blog', href: '/blog' },
+    { name: post.title, href: `/blog/${post.slug}`, current: true }
+  ];
+
   return (
     <div className="pt-24 pb-20 max-w-6xl mx-auto px-4">
+      {/* JSON-LD Schema Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+      
+      {/* Breadcrumb */}
+      <div className="mb-8">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
+      
       <article>
         {/* Header */}
         <div className="mb-12 text-center max-w-4xl mx-auto">

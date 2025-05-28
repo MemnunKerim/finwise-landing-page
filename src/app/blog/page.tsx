@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getAllBlogPosts } from "@/lib/blog";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
   title: "PaletDepo Blog",
@@ -11,11 +12,50 @@ export const metadata = {
   },
 };
 
+// Blog list sayfası için JSON-LD Schema
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "PaletDepo Blog",
+  "description": "Palet depolama, lojistik ve fulfillment dünyasından ipuçları, stratejiler ve uzman tavsiyeleri",
+  "url": "https://paletdepo.com/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PaletDepo - Memnun Depo Nakliyat Lojistik",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://paletdepo.com/images/logo.png"
+    }
+  },
+  "inLanguage": "tr-TR",
+  "about": {
+    "@type": "Thing",
+    "name": "Palet Depolama ve Lojistik"
+  }
+};
+
 export default async function BlogHome() {
   const posts = await getAllBlogPosts();
 
+  const breadcrumbItems = [
+    { name: 'Blog', href: '/blog', current: true }
+  ];
+
   return (
     <div className="pt-24 pb-20 max-w-5xl mx-auto px-4">
+      {/* JSON-LD Schema Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogSchema),
+        }}
+      />
+      
+      {/* Breadcrumb */}
+      <div className="mb-8">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
+      
       <h1 className="text-4xl font-bold text-center mb-16">Blog</h1>
 
       <div className="space-y-12">
