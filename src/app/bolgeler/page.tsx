@@ -82,7 +82,7 @@ const BolgelerPage = () => {
             <h1 className="mb-6">İstanbul Genelinde Palet Depolama Hizmetleri</h1>
           </SectionTitle>
           <p className="text-lg text-foreground-accent max-w-3xl mx-auto mb-8">
-            Esenyurt merkezli ana depomuzdan İstanbul'un her köşesine hızlı ve güvenilir 
+            Esenyurt merkezli ana depomuzdan İstanbul&apos;un her köşesine hızlı ve güvenilir 
             palet depolama hizmetleri sunuyoruz. Hangi bölgeden olursanız olun, paletlerinizi güvenle saklayın!
           </p>
           
@@ -188,7 +188,7 @@ const BolgelerPage = () => {
             <div className="text-center">
               <div className="text-3xl mb-3">📍</div>
               <h3 className="font-semibold mb-2">Merkezi Konum</h3>
-              <p className="text-sm text-gray-600">TEM ve E-5'e yakın stratejik lokasyon</p>
+              <p className="text-sm text-gray-600">TEM ve E-5&apos;e yakın stratejik lokasyon</p>
             </div>
             
             <div className="text-center">
