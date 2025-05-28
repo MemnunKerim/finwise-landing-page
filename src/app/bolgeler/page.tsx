@@ -8,7 +8,7 @@ export const metadata = {
   description: "İstanbul'un her bölgesinde palet depolama hizmetleri. Esenyurt merkezli depomuzda Büyükçekmece, Beylikdüzü, Avcılar ve tüm İstanbul'dan paletleri güvenle saklayın.",
   keywords: "istanbul palet depo, esenyurt depo, büyükçekmece lojistik, beylikdüzü palet, avcılar depolama",
   alternates: {
-    canonical: "https://paletdepo.com/bolgeler",
+    canonical: "https://www.paletdepo.com/bolgeler",
   },
 };
 

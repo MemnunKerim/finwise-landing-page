@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { blogPosts } from '@/data/blogPosts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://paletdepo.com'
+  const baseUrl = 'https://www.paletdepo.com'
   
   // Ana sayfalar
   const staticPages = [

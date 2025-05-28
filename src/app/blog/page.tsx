@@ -8,7 +8,7 @@ export const metadata = {
   title: "PaletDepo Blog",
   description: "Palet depolama ve fulfillment dünyasından ipuçları",
   alternates: {
-    canonical: "https://paletdepo.com/blog",
+    canonical: "https://www.paletdepo.com/blog",
   },
 };
 
@@ -18,13 +18,13 @@ const blogSchema = {
   "@type": "Blog",
   "name": "PaletDepo Blog",
   "description": "Palet depolama, lojistik ve fulfillment dünyasından ipuçları, stratejiler ve uzman tavsiyeleri",
-  "url": "https://paletdepo.com/blog",
+  "url": "https://www.paletdepo.com/blog",
   "publisher": {
     "@type": "Organization",
     "name": "PaletDepo - Memnun Depo Nakliyat Lojistik",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://paletdepo.com/images/logo.png"
+      "url": "https://www.paletdepo.com/images/logo.png"
     }
   },
   "inLanguage": "tr-TR",

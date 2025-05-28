@@ -48,14 +48,14 @@ const schemaData = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://paletdepo.com/#business",
+      "@id": "https://www.paletdepo.com/#business",
       "name": "PaletDepo - Memnun Depo Nakliyat Lojistik",
       "alternateName": "PaletDepo",
       "description": "İstanbul Esenyurt merkezli palet depolama ve lojistik hizmetleri. Günlük ve aylık palet kiralama, güvenli depolama çözümleri.",
 
-      "url": "https://paletdepo.com",
-      "logo": "https://paletdepo.com/images/logo.png",
-      "image": "https://paletdepo.com/images/warehouse-hero.webp",
+      "url": "https://www.paletdepo.com",
+      "logo": "https://www.paletdepo.com/images/logo.png",
+      "image": "https://www.paletdepo.com/images/warehouse-hero.webp",
 
       "telephone": "+902127584214",
       "email": "selam@paletdepo.com",
@@ -181,11 +181,11 @@ const schemaData = {
     },
     {
       "@type": "Organization",
-      "@id": "https://paletdepo.com/#organization", 
+      "@id": "https://www.paletdepo.com/#organization", 
       "name": "Memnun Depo Nakliyat Lojistik San. ve Tic. Ltd. Şti.",
       "legalName": "Memnun Depo Nakliyat Lojistik San. ve Tic. Ltd. Şti.",
-      "url": "https://paletdepo.com",
-      "logo": "https://paletdepo.com/images/logo.png",
+      "url": "https://www.paletdepo.com",
+      "logo": "https://www.paletdepo.com/images/logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+902127584214",
@@ -196,16 +196,16 @@ const schemaData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://paletdepo.com/#website",
-      "url": "https://paletdepo.com",
+      "@id": "https://www.paletdepo.com/#website",
+      "url": "https://www.paletdepo.com",
       "name": "PaletDepo",
       "description": "İstanbul Esenyurt merkezli palet depolama ve lojistik hizmetleri",
       "publisher": {
-        "@id": "https://paletdepo.com/#organization"
+        "@id": "https://www.paletdepo.com/#organization"
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://paletdepo.com/search?q={search_term_string}",
+        "target": "https://www.paletdepo.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }

@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: Props) {
     keywords: `palet depolama, lojistik, ${post.title.toLowerCase()}, depo yönetimi, istanbul depo`,
     authors: [{ name: "PaletDepo Ekibi" }],
     alternates: {
-      canonical: `https://paletdepo.com/blog/${post.slug}`,
+      canonical: `https://www.paletdepo.com/blog/${post.slug}`,
     },
     openGraph: {
       title: `${post.title} – PaletDepo`,
       description: post.excerpt,
-      url: `https://paletdepo.com/blog/${post.slug}`,
+      url: `https://www.paletdepo.com/blog/${post.slug}`,
       type: 'article',
       publishedTime: post.date,
       authors: ['PaletDepo Ekibi'],
@@ -80,29 +80,29 @@ export default async function BlogPost({ params }: Props) {
     "headline": post.title,
     "description": post.excerpt,
     "image": [
-      `https://paletdepo.com${blogImageUrl}`,
-      "https://paletdepo.com/images/warehouse-hero.webp"
+      `https://www.paletdepo.com${blogImageUrl}`,
+      "https://www.paletdepo.com/images/warehouse-hero.webp"
     ],
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
       "@type": "Person",
       "name": "PaletDepo Ekibi",
-      "url": "https://paletdepo.com"
+      "url": "https://www.paletdepo.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "PaletDepo - Memnun Depo Nakliyat Lojistik",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://paletdepo.com/images/logo.png"
+        "url": "https://www.paletdepo.com/images/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://paletdepo.com/blog/${post.slug}`
+      "@id": `https://www.paletdepo.com/blog/${post.slug}`
     },
-    "url": `https://paletdepo.com/blog/${post.slug}`,
+    "url": `https://www.paletdepo.com/blog/${post.slug}`,
     "articleSection": "Lojistik ve Depolama",
     "keywords": `palet depolama, lojistik, ${post.title.toLowerCase()}, depo yönetimi, istanbul depo`,
     "wordCount": post.sections.filter(s => s.type === 'content').join(' ').length,

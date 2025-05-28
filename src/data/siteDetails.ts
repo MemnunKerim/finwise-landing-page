@@ -1,6 +1,6 @@
 export const siteDetails = {
     siteName: 'PaletDepo',
-    siteUrl: 'https://paletdepo.com',
+    siteUrl: 'https://www.paletdepo.com',
     metadata: {
         title: 'PaletDepo – Modern Palet Depolama Çözümleri',
         description:

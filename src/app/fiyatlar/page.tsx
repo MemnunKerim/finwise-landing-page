@@ -6,7 +6,7 @@ export const metadata = {
   title: "Fiyatlar – PaletDepo",
   description: "Günlük ve abonelik bazlı palet depolama fiyatlarımızı inceleyin.",
   alternates: {
-    canonical: "https://paletdepo.com/fiyatlar",
+    canonical: "https://www.paletdepo.com/fiyatlar",
   },
 };
 
