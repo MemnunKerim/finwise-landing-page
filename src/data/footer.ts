@@ -14,6 +14,8 @@ export const footerDetails: {
     { text: "Hizmetler", url: "/#hizmetler" },
     { text: "Fiyatlar", url: "/#fiyatlar" },
     { text: "SSS", url: "/#faq" },
+    { text: "Blog", url: "/blog" },
+    { text: "Hizmet Bölgeleri", url: "/bolgeler" },
     { text: "İletişim", url: "/iletisim" },
     { text: "Rezervasyon", url: "/rezervasyon" },
   ],
