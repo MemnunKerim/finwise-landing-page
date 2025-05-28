@@ -13,5 +13,5 @@ export const siteDetails = {
     language: 'tr',
     locale: 'tr-TR',
     siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // or use a string for the logo e.g. "TechStartup"
-    googleAnalyticsId: '', // e.g. G-XXXXXXX,
+    googleAnalyticsId: 'G-M1Y8G2Y28D',
 }
