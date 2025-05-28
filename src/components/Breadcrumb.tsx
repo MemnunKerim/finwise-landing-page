@@ -48,7 +48,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
           </li>
           
           {/* Breadcrumb Items */}
-          {items.map((item, index) => (
+          {items.map((item) => (
             <li key={item.name}>
               <div className="flex items-center">
                 <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
