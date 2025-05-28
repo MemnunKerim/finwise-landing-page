@@ -17,9 +17,49 @@ export const generateStaticParams = () =>
 export async function generateMetadata({ params }: Props) {
   const post = await getBlogPost(params.slug);
   
+  if (!post) {
+    return {
+      title: "Blog Detay – PaletDepo",
+      description: "PaletDepo blog yazısı",
+    };
+  }
+
+  const blogImageUrl = `/images/blog-${post.slug.replace(/-/g, '')}.png`;
+  const fallbackImageUrl = '/images/warehouse-hero.webp';
+  
   return {
-    title: post ? `${post.title} – PaletDepo` : "Blog Detay – PaletDepo",
-    description: post?.excerpt || "PaletDepo blog yazısı",
+    title: `${post.title} – PaletDepo Blog`,
+    description: post.excerpt,
+    keywords: `palet depolama, lojistik, ${post.title.toLowerCase()}, depo yönetimi, istanbul depo`,
+    authors: [{ name: "PaletDepo Ekibi" }],
+    openGraph: {
+      title: `${post.title} – PaletDepo`,
+      description: post.excerpt,
+      url: `https://paletdepo.com/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['PaletDepo Ekibi'],
+      images: [
+        {
+          url: blogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+        {
+          url: fallbackImageUrl,
+          width: 1200,
+          height: 675,
+          alt: 'PaletDepo - Palet Depolama Hizmetleri',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} – PaletDepo`,
+      description: post.excerpt,
+      images: [blogImageUrl],
+    },
   };
 }
 
