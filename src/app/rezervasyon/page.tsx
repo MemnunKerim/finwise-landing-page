@@ -7,7 +7,10 @@
  export const metadata = {
    title: "Rezervasyon – PaletDepo",
    description: "PaletDepo'da depo alanınızı hemen rezerve edin. Detaylı ürün bilgileri ile güvenli depolama.",
-   keywords: "palet rezervasyon, depo rezervasyon, esenyurt depo, palet depolama rezervasyonu"
+   keywords: "palet rezervasyon, depo rezervasyon, esenyurt depo, palet depolama rezervasyonu",
+   alternates: {
+     canonical: "https://paletdepo.com/rezervasyon",
+   },
  };
  
  const RezervasyonPage = () => {

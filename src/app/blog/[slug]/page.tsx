@@ -32,6 +32,9 @@ export async function generateMetadata({ params }: Props) {
     description: post.excerpt,
     keywords: `palet depolama, lojistik, ${post.title.toLowerCase()}, depo yönetimi, istanbul depo`,
     authors: [{ name: "PaletDepo Ekibi" }],
+    alternates: {
+      canonical: `https://paletdepo.com/blog/${post.slug}`,
+    },
     openGraph: {
       title: `${post.title} – PaletDepo`,
       description: post.excerpt,

@@ -5,6 +5,9 @@ import Benefits from "@/components/Benefits/Benefits";
 export const metadata = {
   title: "Hizmetler – PaletDepo",
   description: "Palet depolama, elleçleme ve stok takibi çözümlerimiz.",
+  alternates: {
+    canonical: "https://paletdepo.com/hizmetler",
+  },
 };
 
 const HizmetlerPage = () => (

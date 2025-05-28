@@ -6,6 +6,9 @@ import { getAllBlogPosts } from "@/lib/blog";
 export const metadata = {
   title: "PaletDepo Blog",
   description: "Palet depolama ve fulfillment dünyasından ipuçları",
+  alternates: {
+    canonical: "https://paletdepo.com/blog",
+  },
 };
 
 export default async function BlogHome() {

@@ -1,6 +1,9 @@
 export const metadata = {
     title: "İletişim – PaletDepo",
-    description: "Bize hemen ulaşın, teklif alın."
+    description: "Bize hemen ulaşın, teklif alın.",
+    alternates: {
+      canonical: "https://paletdepo.com/iletisim",
+    },
   };
 import CTA from "@/components/CTA";
 /*  const IletisimPage = () => (

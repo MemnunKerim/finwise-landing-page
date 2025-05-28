@@ -6,7 +6,10 @@ import Link from "next/link";
 export const metadata = {
   title: "İstanbul Palet Depo Hizmetleri - Esenyurt, Büyükçekmece, Beylikdüzü | PaletDepo",
   description: "İstanbul'un her bölgesinde palet depolama hizmetleri. Esenyurt merkezli depomuzda Büyükçekmece, Beylikdüzü, Avcılar ve tüm İstanbul'dan paletleri güvenle saklayın.",
-  keywords: "istanbul palet depo, esenyurt depo, büyükçekmece lojistik, beylikdüzü palet, avcılar depolama"
+  keywords: "istanbul palet depo, esenyurt depo, büyükçekmece lojistik, beylikdüzü palet, avcılar depolama",
+  alternates: {
+    canonical: "https://paletdepo.com/bolgeler",
+  },
 };
 
 // Bölge verileri
