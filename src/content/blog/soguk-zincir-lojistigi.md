@@ -7,6 +7,8 @@ author: "PaletDepo Uzman Ekibi"
 
 Gıda güvenliği ve ilaç kalitesi söz konusu olduğunda, soğuk zincir lojistiği hayati önem taşır. Yanlış sıcaklık yönetimi, hem ürün kayıplarına hem de ciddi sağlık risklerine yol açabilir. Bu rehberde, dünya standartlarında soğuk zincir depolama ve taşımacılığının nasıl yapılması gerektiğini, yerel ve global örneklerle anlatacağız.
 
+![Soğuk Zincir Lojistiği Nedir?](/images/BlogAraGörseller/SoğukZincir/SoğukZincirNerdir.png)
+
 ## Soğuk Zincir Nedir?
 
 Soğuk zincir, sıcaklığa duyarlı ürünlerin üretimden tüketime kadar kesintisiz olarak kontrollü sıcaklıkta tutulması sürecidir. Bu zincirin tek bir halkasının kopması, tüm ürünün bozulmasına neden olabilir.
@@ -59,6 +61,8 @@ Soğuk zincir, sıcaklığa duyarlı ürünlerin üretimden tüketime kadar kesi
 - Yedek jeneratörler
 - Otomatik devreye girme sistemleri
 - 72 saat yedek yakıt kapasitesi
+
+![Soğuk Zincir Lojistiğinde Sektörel Uygulamalar ve Risk Yönetimi](/images/BlogAraGörseller/SoğukZincir/Görsel2_SektörelUygulamalarVeRiskler.png)
 
 ## Sektörel Uygulamalar
 
@@ -177,6 +181,8 @@ COVID-19 aşı dağıtımında öğrendiklerimiz:
 - IFS Logistics
 - SQFI (Safe Quality Food Institute)
 - GFSI (Global Food Safety Initiative)
+
+![Soğuk Zincir Depolama Teknolojileri ve Optimizasyon Yöntemleri](/images/BlogAraGörseller/SoğukZincir/Görsel3.png)
 
 ## Başarı Hikayeleri
 

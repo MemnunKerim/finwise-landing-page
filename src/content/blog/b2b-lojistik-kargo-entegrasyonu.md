@@ -2,6 +2,8 @@
 
 B2B işletmenizde günde onlarca farklı adrese sevkiyat yapıyor musunuz? Farklı kargo firmalarıyla çalışırken kaybolmuş gönderiler, gecikmeler ve yüksek maliyetlerle mi uğraşıyorsunuz? Modern B2B lojistiğinde başarının anahtarı, akıllı kargo entegrasyonu ve çoklu taşıyıcı yönetimidir. Bu rehberde, Aras Kargo'dan MNG'ye, Yurtiçi'den PTT'ye kadar tüm kargo firmalarıyla nasıl verimli çalışacağınızı anlatacağız.
 
+![B2B Lojistik Teknoloji ve Dijitalleşme](/images/BlogAraGörseller/b2b-lojistik-kargo-entegrasyonu/TeknolojiVeDijitalleşme.png)
+
 ## B2B Lojistiğin E-ticaretten Farkları
 
 B2B lojistik, B2C'den çok farklı dinamiklere sahiptir. Bu farkları anlamak, doğru stratejiler geliştirmenin ilk adımıdır.
@@ -53,6 +55,8 @@ B2B lojistik, B2C'den çok farklı dinamiklere sahiptir. Bu farkları anlamak, d
 **UPS, FedEx, DHL:** Uluslararası B2B için
 **Sürat Kargo:** Hızlı teslimat gereken durumlar
 **Sendeo:** E-ticaret odaklı çözümler
+
+![Çoklu Kargo Yönetimi ve Entegrasyonu](/images/BlogAraGörseller/b2b-lojistik-kargo-entegrasyonu/ÇokluKargoYönetimi.png)
 
 ## Çoklu Kargo Entegrasyonu Stratejileri
 
@@ -311,6 +315,8 @@ const kpiMetrics = {
 ### 3. Gıda ve İçecek
 
 **Soğuk zincir gereksinimleri zaten soğuk zincir yazınızda var**
+
+![B2B Lojistik Başarı Hikayeleri](/images/BlogAraGörseller/b2b-lojistik-kargo-entegrasyonu/BaşarıHikayeleri.png)
 
 ## Başarı Hikayeleri
 

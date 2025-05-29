@@ -2,6 +2,8 @@
 
 Ürünleriniz depolarda haftalarca bekliyor mu? Stok maliyetleri işletme bütçenizi zorluyor mu? Cross-docking ve transit depolama, modern lojistiğin hız ve verimlilik araçlarıdır. Walmart'ın global başarısının arkasındaki gizli silahtan, Amazon'un aynı gün teslimat mucizesine kadar, bu rehberde hızlı dağıtım çözümlerinin sırlarını keşfedeceksiniz.
 
+![Transit Depolama ve Cross-docking İşlemleri](/images/BlogAraGörseller/CrossDocking/TransitDepolama.png)
+
 ## Cross-docking Nedir?
 
 Cross-docking, ürünlerin gelen araçlardan alınarak minimum depolama süresiyle (genellikle 24 saat içinde) giden araçlara aktarıldığı lojistik yöntemidir. Geleneksel depolamadan farklı olarak, ürünler uzun süre rafta beklemez.
@@ -219,6 +221,8 @@ TOPLAM: ₺90,000/ay
 - Eskime riski: %80 azalma
 - Depolama alanı ihtiyacı: %50 azalma
 
+![Cross-docking Başarı Hikayeleri ve Sektörel Uygulamalar](/images/BlogAraGörseller/CrossDocking/SektörelUygulamalar.png)
+
 ## Sektörel Uygulamalar
 
 ### 1. Perakende ve E-ticaret
@@ -374,6 +378,8 @@ const qualityControl = {
     }
 };
 ```
+
+![Cross-docking Başarı Faktörleri](/images/BlogAraGörseller/CrossDocking/BaşarıHikayeleri.png)
 
 ## Başarı Hikayeleri
 

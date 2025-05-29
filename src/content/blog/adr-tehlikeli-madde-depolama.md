@@ -7,6 +7,8 @@ author: "PaletDepo Uzman Ekibi"
 
 Kimyasal maddeler, yakıtlar, boyalar veya temizlik ürünleri mi depoluyorsunuz? ADR (Accord Dangereux Routier) sınıfına giren tehlikeli maddelerin depolanması, özel güvenlik önlemleri ve yasal düzenlemeler gerektirir. Bu kapsamlı rehberde, ADR depolama kurallarını, güvenlik önlemlerini ve uyulması gereken mevzuatı detaylıca inceleyeceğiz.
 
+![ADR Depolama Sistemi](/images/BlogAraGörseller/ADR/adrDepolama.png)
+
 ## ADR Nedir ve Neden Önemlidir?
 
 ADR, tehlikeli maddelerin karayoluyla uluslararası taşınmasına ilişkin Avrupa Anlaşması'dır. Türkiye'nin de taraf olduğu bu anlaşma, tehlikeli maddelerin sınıflandırılması, paketlenmesi, etiketlenmesi, belgelenmesi ve taşınmasına ilişkin kuralları belirler.
@@ -168,6 +170,8 @@ Farklı ADR sınıfları birlikte depolanamaz. Örneğin:
 - Forklift operatör belgesi
 - KKD kullanım eğitimi
 
+![ADR Acil Durum ve Risk Planlaması](/images/BlogAraGörseller/ADR/AcilDurumVeRiskPlanlaması.png)
+
 ## Risk Yönetimi ve Acil Durum Planlaması
 
 ### Risk Değerlendirmesi
@@ -260,6 +264,8 @@ Farklı ADR sınıfları birlikte depolanamaz. Örneğin:
 - Otomatik sistemlerle işgücü tasarrufu
 - Optimum alan kullanımı
 - Kayıp/zarar minimizasyonu
+
+![ADR Başarı Faktörleri](/images/BlogAraGörseller/ADR/BaşarıFaktörleri.png)
 
 ## Başarı Faktörleri
 

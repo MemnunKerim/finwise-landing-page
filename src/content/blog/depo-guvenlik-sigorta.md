@@ -2,6 +2,8 @@
 
 Deponuzda milyonlarca liralık ürün var ama güvenlik sisteminiz sadece bir güvenlik görevlisinden mi ibaret? Yangın, hırsızlık, doğal afet veya iş kazası durumunda ne yapacağınızı biliyor musunuz? Modern depo işletmeciliğinde güvenlik ve sigorta, operasyonel mükemmelliğin ayrılmaz parçasıdır. Bu rehberde, depo güvenliğinin tüm boyutlarını ve sigorta stratejilerini detaylıca inceleyeceğiz.
 
+![Depo Güvenlik Riski Değerlendirmesi](/images/BlogAraGörseller/DepoGüvenliğiVeSigorta/GüvenlikRiski.png)
+
 ## Depo Güvenlik Riski Kategorileri
 
 ### 1. Fiziksel Güvenlik Riskleri
@@ -111,6 +113,8 @@ const securitySystem = {
 - Köpük bazlı söndürme (yanıcı sıvılar için)
 - Gazlı söndürme (elektronik alanlar için)
 - Su pusu sistemleri
+
+![Sigorta Stratejileri ve Çözümleri](/images/BlogAraGörseller/DepoGüvenliğiVeSigorta/SigortaStratejileri.png)
 
 ## Sigorta Stratejileri ve Poliçe Türleri
 
@@ -263,6 +267,8 @@ class SecurityManager:
 - Kalıp tanıma
 - Risk skorlama sistemi
 - Proaktif müdahale
+
+![Güvenlik Yatırımı Maliyet-Fayda Analizi](/images/BlogAraGörseller/DepoGüvenliğiVeSigorta/MaliyetFayda.png)
 
 ## Maliyet-Fayda Analizi
 

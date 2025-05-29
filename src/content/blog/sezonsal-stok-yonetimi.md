@@ -7,6 +7,8 @@ author: "PaletDepo Uzman Ekibi"
 
 Yazın klima, kışın soba satışları tavan yaparken, diğer dönemlerde bu ürünler depolarda yer kaplar. Sezonsal ürün satan işletmeler için stok yönetimi ve depolama maliyetleri ciddi bir sorun olabilir. Bu rehberde, sezonsal dalgalanmaları yönetmenin en etkili yollarını ve maliyet optimizasyon stratejilerini inceleyeceğiz.
 
+![Modern Sezonsal Depolama Stratejileri](/images/BlogAraGörseller/Sezonsal/ModernSezonsalDepolamaStratejileri.png)
+
 ## Sezonsal Stok Nedir?
 
 Sezonsal stok, belirli dönemlerde talep gören ve yılın geri kalanında düşük veya sıfır satışı olan ürünlerdir. Bu ürünlerin yönetimi, standart stok yönetimine göre farklı stratejiler gerektirir.
@@ -170,6 +172,8 @@ Sezonsal stok, belirli dönemlerde talep gören ve yılın geri kalanında düş
 | Risk | Yüksek | Düşük |
 | ROI | 18 ay | 8 ay |
 
+![Sezonsal Stok Yönetimi Operasyonel Stratejiler](/images/BlogAraGörseller/Sezonsal/OperasyonelStratejiler.png)
+
 ## Operasyonel Stratejiler
 
 ### Envanter Rotasyonu
@@ -260,6 +264,8 @@ Sezonsal stok, belirli dönemlerde talep gören ve yılın geri kalanında düş
 - Faktoring
 - Kredili satış sigortası
 - Döviz hedging
+
+![Sezonsal Stok Yönetimi Başarı Hikayeleri](/images/BlogAraGörseller/Sezonsal/SezonsalBaşarı.png)
 
 ## Başarı Hikayeleri
 

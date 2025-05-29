@@ -2,6 +2,8 @@
 
 Stok sayımında hata mı yapıyorsunuz? Hangi ürünün nerede olduğunu bulmak saatler mi alıyor? Müşterilerinize yanlış stok bilgisi verip satış mı kaybediyorsunuz? Modern WMS (Warehouse Management System) entegrasyonları ile bu sorunlar tarihe karışıyor. DHL, Amazon, Borusan gibi global oyuncuların deneyimlerinden yola çıkarak, canlı stok takibinin işinizi nasıl dönüştüreceğini keşfedin.
 
+![Modern WMS Sistemi ile Depo Yönetimi - Tablet ile Stok Kontrolü Yapan Personel](/images/BlogAraGörseller/wms/smiling-young-female-warehouse-worker-with-tablet-checking-inventory-professional-modern-diligent-employee-work-ai_372197-6386.avif)
+
 ## WMS Nedir ve Neden Kritik?
 
 WMS, depo operasyonlarınızı dijitalleştiren, otomatikleştiren ve optimize eden yazılım sistemleridir. Sadece bir stok takip programından çok daha fazlasıdır:
@@ -89,6 +91,8 @@ NextSmartShip'in örneğinde görüldüğü gibi: "Sistem otomatik olarak çoklu
 - Otomatik rotalama
 - Teslimat onayı entegrasyonu
 
+![WMS Entegrasyonu - Depo Müdürü ve Personel Laptop ile İş Birliği](/images/BlogAraGörseller/wms/warehouse-manager-and-female-worker-using-laptop.webp)
+
 ## Teknoloji Altyapısı
 
 ### 1. Barkod ve QR Kod Sistemleri
@@ -118,6 +122,8 @@ NextSmartShip'in örneğinde görüldüğü gibi: "Sistem otomatik olarak çoklu
 - Soğuk zincir takibi
 - Toplu okuma gereken durumlar
 - Güvenlik gereksinimleri
+
+![Otomatik Depo Sistemleri ve Dijital Lojistik Teknolojileri](/images/BlogAraGörseller/wms/1000_F_819814453_eqXbKH7RRfKSoWlxS9IdUPa4vh4UxGcL.jpg)
 
 ### 3. Cloud ve API Mimarisi
 

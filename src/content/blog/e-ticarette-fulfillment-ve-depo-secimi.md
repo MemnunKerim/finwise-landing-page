@@ -2,6 +2,8 @@
 
 E-ticaret işiniz büyüyor ama lojistik operasyonlarınız ayak uyduramıyor mu? Siparişleri zamanında yetiştirmekte zorlanıyor musunuz? Bu rehberde, DHL'den Amazon'a, Borusan'dan ParkPalet'e kadar sektör liderlerinin deneyimlerinden yola çıkarak, e-ticaret işiniz için en uygun fulfillment ve depo çözümünü nasıl seçeceğinizi anlatacağız.
 
+![E-ticaret için Depo Seçim Kriterleri](/images/BlogAraGörseller/E-ticarette%20Fulfillment/E-ticaretİçin-Depo-Seçim-Kriterleri.png)
+
 ## E-ticarette Fulfillment Nedir?
 
 Fulfillment, müşteri siparişinin alınmasından teslimatına kadar geçen tüm süreçleri kapsar:
@@ -136,6 +138,8 @@ DHL Fulfillment Network verilerine göre:
 - **Dezavantaj:** Sınırlı coğrafya
 - **Maliyet:** Rekabetçi, şeffaf
 
+![Pazaryeri Entegrasyonları ve Çözümleri](/images/BlogAraGörseller/E-ticarette%20Fulfillment/Pazaryeri-Entegrasyonları.png)
+
 ## Pazaryeri Entegrasyonları
 
 ### Kritik Entegrasyonlar:
@@ -193,6 +197,8 @@ ROI = (Tasarruf / Yatırım) x 100
 "Çin'den ithalat maliyetlerimiz %30 düştü. Teslimat sürelerimiz yarıya indi."
 
 **Sonuç:** Rekabet avantajı
+
+![Depo Seçimi için Kontrol Listesi](/images/BlogAraGörseller/E-ticarette%20Fulfillment/SeçimİçinKontrolListesi.png)
 
 ## Seçim İçin Kontrol Listesi
 

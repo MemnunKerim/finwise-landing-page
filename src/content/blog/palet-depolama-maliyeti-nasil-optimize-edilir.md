@@ -2,6 +2,8 @@
 
 İşletmenizin depolama maliyetleri kontrolden mi çıktı? Sabit depo kiralarına her ay binlerce lira mı ödüyorsunuz? Bu yazıda, hem yerel hem de global örneklerle palet depolama maliyetlerinizi nasıl %20-30 oranında azaltabileceğinizi göstereceğiz.
 
+![Palet Depolama Maliyet Analizi ve Optimizasyon Stratejileri](/images/BlogAraGörseller/DepolamaMaliyetOptimizasyon/Görsel1.png)
+
 ## Geleneksel Depolama Modeli Neden Pahalı?
 
 Geleneksel depolama modelinde işletmeler, ihtiyaç duysun ya da duymasın sabit metrekare kirası öderler. Örneğin, 1000 m² depo kiralayan bir işletme, sadece 300 m² kullanıyor olsa bile tüm alan için ödeme yapar. Bu durum özellikle:
@@ -41,6 +43,8 @@ NextSmartShip ve DHL'in uyguladığı "shared warehousing" modeli, küçük işl
 - Çoklu müşteri depoları ile sabit maliyetler paylaşılır
 - Bulk indirimlerden tüm müşteriler faydalanır
 - Premium hizmetler uygun fiyatlarla sunulur
+
+![Esnek Depolama Modeli ile Maliyet Tasarruf Yöntemleri](/images/BlogAraGörseller/DepolamaMaliyetOptimizasyon/Görsel2.png)
 
 ## Maliyet Optimizasyon Stratejileri
 

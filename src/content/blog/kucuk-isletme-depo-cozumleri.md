@@ -2,6 +2,8 @@
 
 Küçük işletmeniz büyüyor ama depolama maliyetleri bütçenizi zorluyor mu? Evinizdeki garaja sığmayan ürünlerinizi nereye koyacağınızı bilmiyor musunuz? Büyük firmalar gibi kocaman depo kiralama lüksünüz yok mu? Bu rehber tam size göre! Girişimden büyümeye, küçük işletmeler için maliyet etkin ve ölçeklenebilir depo çözümlerini anlatacağız.
 
+![Küçük İşletmeler için Modern Depolama Çözümleri ve Lojistik Hizmetleri](/images/BlogAraGörseller/Küçükİşletmeleri/5a047e4e-9b78-4e74-a6d2-66e60ddcd4d4.png)
+
 ## Küçük İşletmelerin Depolama Sorunları
 
 ### 1. Maliyet Baskısı
@@ -413,6 +415,8 @@ barcode_system_roi = calculate_roi(
 - ISO 500 KOBİ programları
 - Banka KOBİ kredileri
 
+![Küçük İşletmeler için Büyüme Stratejileri](/images/BlogAraGörseller/Küçükİşletmeleri/BüyütmeStratejileri.png)
+
 ## Büyüme Stratejileri
 
 ### 1. Ölçeklenebilir Çözümler
@@ -446,6 +450,8 @@ Aşama 4: Kendi tesisi
 - Etiketleme ve paketleme
 - Kalite kontrolü
 - Müşteri hizmetleri
+
+![Küçük İşletme Başarı Hikayeleri](/images/BlogAraGörseller/Küçükİşletmeleri/BaşarıHikayeleri.png)
 
 ## Başarı Hikayeleri
 
