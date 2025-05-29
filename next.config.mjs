@@ -63,11 +63,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdnjs.cloudflare.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://memnun-depo-wms-44cdac35fae8.herokuapp.com",
+              "connect-src 'self' https://memnun-depo-wms-44cdac35fae8.herokuapp.com https://www.google-analytics.com",
               "media-src 'self'",
               "object-src 'none'",
               "frame-src 'none'",
