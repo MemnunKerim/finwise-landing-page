@@ -209,11 +209,6 @@ const schemaData = {
       "description": "İstanbul Esenyurt merkezli palet depolama ve lojistik hizmetleri",
       "publisher": {
         "@id": "https://www.paletdepo.com/#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.paletdepo.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
       }
     }
   ]
