@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
     keywords: `palet depolama, lojistik, ${post.title.toLowerCase()}, depo yönetimi, istanbul depo`,
     authors: [{ name: "PaletDepo Ekibi" }],
     alternates: {
-      canonical: `https://www.paletdepo.com/blog/${post.slug}`,
+      canonical: `/blog/${post.slug}`,
     },
     openGraph: {
       title: `${post.title} – PaletDepo`,
@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: Props) {
       authors: ['PaletDepo Ekibi'],
       images: [
         {
-          url: blogImageUrl,
+          url: `https://www.paletdepo.com${blogImageUrl}`,
           width: 1200,
           height: 630,
           alt: post.title,
         },
         {
-          url: fallbackImageUrl,
+          url: `https://www.paletdepo.com${fallbackImageUrl}`,
           width: 1200,
           height: 675,
           alt: 'PaletDepo - Palet Depolama Hizmetleri',
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Props) {
       card: 'summary_large_image',
       title: `${post.title} – PaletDepo`,
       description: post.excerpt,
-      images: [blogImageUrl],
+      images: [`https://www.paletdepo.com${blogImageUrl}`],
     },
   };
 }

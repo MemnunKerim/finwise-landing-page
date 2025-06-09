@@ -12,14 +12,13 @@ const manrope = Manrope({ subsets: ['latin'] });
 const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.paletdepo.com'),
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
   keywords: siteDetails.metadata.keywords,
   alternates: {
-    canonical: siteDetails.siteUrl,
+    canonical: '/',
   },
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#3B82F6', // Primary blue color
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
@@ -41,6 +40,14 @@ export const metadata: Metadata = {
     images: ['/images/warehouse-hero.webp'],
   },
 };
+
+export function generateViewport() {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+    themeColor: '#3B82F6',
+  }
+}
 
 // Schema markup için JSON-LD
 const schemaData = {
